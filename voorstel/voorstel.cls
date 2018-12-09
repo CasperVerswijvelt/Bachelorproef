@@ -226,7 +226,7 @@ justification=raggedright]{caption}
 \fi%
 \ifx\@CoPromotor\@empty%
 \else%
-\\[4pt]\textbf{Co-promotor}\\\@CoPromotor%
+
 \fi%
 }%
 }%
