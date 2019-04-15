@@ -7,9 +7,21 @@
 
 % Pas na deze inleidende paragraaf komt de eerste sectiehoofding.
 
+Om te de verschillende 'ontgoogle' manieren met elkaar te kunnen vergelijken, moeten we eerst wat dieper ingaan op de manieren waarop dit gedaan kan worden. In dit hoofdstuk zult u meer te weten komen over hoe een 'ontgoogling' kan gebeuren en hoe dit precies in zijn werk gaat.
+
+\section{Google Play-Services}
+Aan het hart van het Android besturingssysteem liggen de 'Google Play-Services'. Deze services zijn zeer nauw met het Android besturingssysteem geïntegreerd, en bieden een bundel van API's aan. Een API of 'Application Program Interface' is kort gezegd een set van hulpmiddelen die het voor applicatie-ontwikkelaars makkelijker maakt om applicaties te ontwikkelen.
+
+AOSP, ook gekend als Android Open Source Project zelf biedt ook een bundel API's  aan, maar Google zelf adviseert om de API's van de Google Play-Services te gebruiken. Deze zijn immers een stuk makkelijker te gebruiken, en zorgen ervoor dat applicaties niet rechtstreeks afhankelijk zijn van Android besturingssysteem updates. Een ander verschil tussen de standaard API's die Android aanbiedt en degene van Google Play-Services, is dat deze van AOSP, zoals de naam zelf al zegt, volledig 'open-source' zijn. Dit betekent dat de broncode volledig openbaar is. Google Play-Services zowel als de API's die deze aanbiedt, zijn 'closed-source'.
+
+Steeds meer en meer open-source applicaties, die voorheen te vinden waren binnen AOSP, worden achtergelaten en vervangen door een closed-source versie op de Google Play Store, de applicatie van Google waarmee gebruikers applicaties kunnen downloaden en installeren. Ook de Play Store maakt gebruik van de Google Play-Services om applicaties automatisch te kunnen updaten.
+
+Doordat zeer veel applicaties dus rechtstreeks afhangen van de Google Play-Services, zullen veel applicaties ook ronduit niet meer zoals gewenst functioneren wanneer de Play-Services niet aanwezig zijn of deze niet beschikt over de nodige toestemmingen. Dit wordt ook gemeld wanneer je de machtigingen van de Google Play-Services probeert in te perken, door een melding die zegt 'Als je deze machtiging weigert, kan het zijn dat basisfuncties van je apparaat niet meer werken zoals bedoeld.'.
+
+
 Dit hoofdstuk bevat je literatuurstudie. De inhoud gaat verder op de inleiding, maar zal het onderwerp van de bachelorproef *diepgaand* uitspitten. De bedoeling is dat de lezer na lezing van dit hoofdstuk helemaal op de hoogte is van de huidige stand van zaken (state-of-the-art) in het onderzoeksdomein. Iemand die niet vertrouwd is met het onderwerp, weet er nu voldoende om de rest van het verhaal te kunnen volgen, zonder dat die er nog andere informatie moet over opzoeken \autocite{Pollefliet2011}.
 
-Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz. naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van het commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\TeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin, gebruik je \texttt{$\backslash${}textcite\{\}}.
+Je verwijst bij elke bewering die je doet, vakterm die je introduceert, enz. naar je bronnen. In \LaTeX{} kan dat met het commando \texttt{$\backslash${textcite\{\}}} of \texttt{$\backslash${autocite\{\}}}. Als argument van - commando geef je de ``sleutel'' van een ``record'' in een bibliografische databank in het Bib\TeX{}-formaat (een tekstbestand). Als je expliciet naar de auteur verwijst in de zin, gebruik je \texttt{$\backslash${}textcite\{\}}.
 Soms wil je de auteur niet expliciet vernoemen, dan gebruik je \texttt{$\backslash${}autocite\{\}}. In de volgende paragraaf een voorbeeld van elk.
 
 \textcite{Knuth1998} schreef een van de standaardwerken over sorteer- en zoekalgoritmen. Experten zijn het erover eens dat cloud computing een interessante opportuniteit vormen, zowel voor gebruikers als voor dienstverleners op vlak van informatietechnologie~\autocite{Creeger2009}.
