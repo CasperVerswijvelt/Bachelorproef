@@ -1,61 +1,81 @@
+% Encoding: UTF-8
 %% This BibTeX bibliography file was created using BibDesk.
 %% https://bibdesk.sourceforge.io/
 
 %% Created for Casper Verswijvelt at 2019-04-21 12:12:39 +0200 
 
 
-%% Saved with string encoding Unicode (UTF-8) 
+%% Saved with string encoding Unicode (UTF-8)
 
+@Electronic{amadeo_open-source,
+  author        = {Ron Amadeo},
+  title         = {Google's iron grip on Android: Controlling open source by any means necessary},
+  year          = {2018},
+  url           = {https://arstechnica.com/gadgets/2018/07/googles-iron-grip-on-android-controlling-open-source-by-any-means-necessary/},
+  month         = {7},
+  urldate       = {2019-04-21},
+  date-added    = {2019-04-21 09:39:34 +0000},
+  date-modified = {2019-04-21 09:42:20 +0000},
+  rating        = {1},
+}
 
+@Electronic{beal_api,
+  author        = {Vangie Beal},
+  title         = {API - application program interface},
+  year          = {2019},
+  date          = {2019-04-21},
+  url           = {https://www.webopedia.com/TERM/A/API.html},
+  urldate       = {2019-04-21},
+  date-added    = {2019-04-21 09:28:03 +0000},
+  date-modified = {2019-04-21 09:32:00 +0000},
+  lastchecked   = {https://www.webopedia.com/TERM/A/API.html},
+}
 
-@electronic{amadeo_open-source,
-	Author = {Ron Amadeo},
-	Date-Added = {2019-04-21 09:39:34 +0000},
-	Date-Modified = {2019-04-21 09:42:20 +0000},
-	Month = {7},
-	Rating = {1},
-	Title = {Google's iron grip on Android: Controlling open source by any means necessary},
-	Url = {https://arstechnica.com/gadgets/2018/07/googles-iron-grip-on-android-controlling-open-source-by-any-means-necessary/},
-	Urldate = {2019-4-21},
-	Year = {2018}}
+@Electronic{marshall_google-play-services,
+  author        = {Chris Marshall},
+  title         = {Google Play Services: the heartbeat of your Android smartphone},
+  year          = {2019},
+  url           = {https://www.androidpit.com/google-play-services-what-is-it-and-what-is-it-for},
+  urldate       = {2019-04-21},
+  date-added    = {2019-04-21 09:19:59 +0000},
+  date-modified = {2019-04-21 09:32:22 +0000},
+}
 
-@electronic{beal_api,
-	Author = {Vangie Beal},
-	Date-Added = {2019-04-21 09:28:03 +0000},
-	Date-Modified = {2019-04-21 09:32:00 +0000},
-	Lastchecked = {https://www.webopedia.com/TERM/A/API.html},
-	Title = {API - application program interface},
-	Urldate = {2019-4-21}}
+@Electronic{custom-rom,
+  editor  = {xdadevelopers},
+  title   = {What is an Android Custom ROM?},
+  year    = {2018},
+  url     = {https://www.xda-developers.com/what-is-custom-rom-android/},
+  urldate = {2019-04-21},
+}
 
-@electronic{marshall_google-play-services,
-	Author = {Chris Marshall},
-	Date-Added = {2019-04-21 09:19:59 +0000},
-	Date-Modified = {2019-04-21 09:32:22 +0000},
-	Month = {Januari},
-	Title = {Google Play Services: the heartbeat of your Android smartphone},
-	Url = {https://www.androidpit.com/google-play-services-what-is-it-and-what-is-it-for},
-	Urldate = {2019-4-21},
-	Year = {2019}}
+@Electronic{microg,
+  author = {microG},
+  title  = {microG Project},
+  year   = {2019},
+  url    = {https://microg.org},
+}
 
-@book{Knuth1998,
-	Address = {Redwood City, CA, USA},
-	Author = {Knuth, Donald E.},
-	Publisher = {Addison Wesley Longman Publishing Co., Inc.},
-	Title = {The art of computer programming, volume 3: (2nd ed.) sorting and searching},
-	Year = {1998}}
+@Electronic{hoffman_custom-recovery,
+  author = {Chris Hoffman},
+  title  = {What is a Custom Recovery on Android, and Why Would I Want One?},
+  year   = {2017},
+  date   = {2017-07-11},
+  url    = {https://www.howtogeek.com/193055/what-is-a-custom-recovery-on-android-and-why-would-i-want-one/},
+}
 
-@book{Pollefliet2011,
-	Address = {Gent},
-	Author = {Pollefliet, Leen},
-	Publisher = {Academia Press},
-	Title = {Schrijven van verslag tot eindwerk: do's en don'ts},
-	Year = {2011}}
+@Electronic{knight_degoogle,
+  author = {Jon Knight},
+  title  = {5 Ways to Keep Google from Collecting Data on Your Android Phone},
+  date   = {2019-02-25},
+  url    = {https://android.gadgethacks.com/how-to/5-ways-keep-google-from-collecting-data-your-android-phone-0181002/},
+}
 
-@article{Creeger2009,
-	Author = {Creeger, Mache},
-	Journal = {Communications of the ACM},
-	Number = {8},
-	Pages = {50--56},
-	Title = {{CTO Roundtable: Cloud Computing}},
-	Volume = {52},
-	Year = {2009}}
+@Electronic{google_dns-tls,
+  author = {Google},
+  title  = {Google Public DNS},
+  year   = {2019},
+  url    = {https://developers.google.com/speed/public-dns/docs/using#android},
+}
+
+@Comment{jabref-meta: databaseType:biblatex;}
