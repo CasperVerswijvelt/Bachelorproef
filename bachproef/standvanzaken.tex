@@ -34,13 +34,13 @@ Steeds meer en meer open-source applicaties, die voorheen te vinden waren binnen
 Doordat zeer veel applicaties dus rechtstreeks afhangen van de Google Play-Services, zullen veel applicaties ook regelrecht niet meer zoals gewenst functioneren wanneer de Play-Services niet aanwezig zijn of deze niet beschikt over de nodige toestemmingen \autocite{marshall_google-play-services}. Android handhaaft een toestemmingssysteem waarbij elke applicatie eerst toestemming moet vragen voordat deze aan gevoelige gebruikersdata kan. Voorbeelden van dergelijke machtigingen zijn toegang tot de camera, contacten en SMS informatie \autocite{android_permissions}. Standaard krijgt Google Play Services, als enige applicatie, alle machtigingen toegekend, zoals te zien in figuur \ref{fig:permissions1}. Wanneer er geprobeerd word om hier de machtigingen in te perken, wordt er ook gemeld dat dit kan leiden tot het verstoren van basisfunctionaliteiten, zoals te zien in figuur \ref{fig:permissions1}. \textquote{Als je deze machtiging weigert, kan het zijn dat basisfuncties van je apparaat niet meer werken zoals bedoeld.}.
 
 \begin{figure}
-    \includegraphics[width=0.5\textwidth]{img/machtigingen.jpg}
+    \includegraphics[width=0.4\textwidth]{img/machtigingen.jpg}
     \caption{Screenshot van vereiste machtigingen van Google Play Services}
     \label{fig:permissions1}
 \end{figure}
 
 \begin{figure}
-    \includegraphics[width=0.5\textwidth]{img/machtigingen_melding.jpg}
+    \includegraphics[width=0.4\linewidth]{img/machtigingen_melding.jpg}
     \caption{Screenshot van melding bij inperken van machtigingen van Google Play Services}
     \label{fig:permissions2}
 \end{figure}
@@ -101,5 +101,13 @@ Desalniettemin, bestaat er een open-source implementatie van de Google Play-Serv
 Zoals hierboven vermeld, probeert microG een vervanging te zijn voor de gesloten software van Google, de Google Play-Services. Ook wordt er gezegd dat de implementatie van de microG componenten verre van compleet zijn. Het feit dat microG de functionaliteit van de Google Play-Services wilt nabootsen, impliceert ook dat de nieuwste functies niet direct beschikbaar zullen zijn binnen dit alternatief. Naarmate de ontwikkelaar-gemeenschap achter dit project blijft groeien zal deze functionele achterstand wel inkrimpen.
 
 MicroG maakt het mogelijk om terug de Google Play Store te gebruiken, maar biedt ook een aparte applicatie aan genaamd 'FakeStore'. Deze zorgt ervoor dat andere applicaties denken dat de Play Store aanwezig is, terwijl dit natuurlijk niet zo is. Verder biedt deze applicatie niets van functionaliteit. Alternatieve app-stores zoals F-Droid of de Yalp Store zijn ook mogelijke opties. \autocite{shadow53_play-store}
+
+\paragraph*{SafetyNet}
+
+Aan bovenstaande methode zijn er ook negatieve kanten. Android heeft namelijk veiligheidsmaatregelen getroffen met betrekking tot het blokkeren van veiligheidsrisico's, 'sjoemelen' met het apparaat, kwaadaardige applicaties en 'nep' gebruikers \autocite{android_safetynet}. Dit systeem heet SafetyNet, en maakt deel uit van de Google Play Services. App-ontwikkelaars kunnen via de SafetyNet Attestation API nagaan op welk niveau aan de systeem integriteits controle voldaan wordt. Op basis van deze informatie kunnen bepaalde functies binnen de applicatie geblokkeerd worden. Het is ook mogelijk dat de volledige applicatie onbruikbaar wordt. Denk hier bijvoorbeeldt aan het bekende spel 'Pokemon GO', die het spel onspeelbaar maakt op apparaten die niet aan de SafetyNet controle voldoen. In de Belfius mobiele bankier-applicatie is het bijvoorbeeld niet mogelijk om vingerafdruk-authenticatie te gebruiken op zo'n apparaten. Ook de Play Store kan op basis van deze data het installeren van specifieke applicaties volledig voorkomen.
+
+Wanneer er een custom ROM geïnstalleerd is, is de bootloader ook ontgrendelt. Aan de hand van de CTS (Compatibility Test Suite) kan Google bekijken of er ook maar enige aanpassingen zijn toegepast op het systeem. Een unlocked bootloader valt hier ook onder.
+
+
 
 

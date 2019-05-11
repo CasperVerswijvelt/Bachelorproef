@@ -115,4 +115,11 @@
   url    = {https://developerlife.com/2010/10/20/gps/#gps--gps-agps},
 }
 
+@Electronic{android_permissions,
+  author = {Android},
+  title  = {Permissions overview},
+  year   = {2019},
+  url    = {https://developer.android.com/guide/topics/permissions/overview},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
