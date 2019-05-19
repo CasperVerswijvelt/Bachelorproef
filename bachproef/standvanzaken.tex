@@ -10,8 +10,7 @@
 Om de verschillende 'ontgoogle' manieren met elkaar te kunnen vergelijken, moeten we eerst wat dieper ingaan op de verschillende Google componenten die te vinden zijn binnen het Android besturingssysteem en hoe deze zoveel mogelijk te limiteren en/of uit te schakelen zijn. In dit hoofdstuk zult u meer te weten komen over wat er precies gebeurt achter de schermen van Android en hoe pecies een 'ontgoogling' kan gebeuren.
 
 \section{Google componenten binnen Android}
-%TODO voornamelijk weg, niet waterdicht genoeg
-Google software binnen het Android besturing bestaat voornamelijk uit de 'Google Play-Services', het achterliggende 'brein' van Google, en Google applicaties, zoals GMail, Google Play Store, etc.
+Google software binnen het Android besturing bestaat uit Google App. Deze kan verder opgedeeld worden in de 'Google Play-Services', het achterliggende 'brein' van Google, en Google applicaties, zoals GMail, Google Play Store, etc.
 
 \subsection{Google Play-Services}
 
@@ -19,9 +18,25 @@ Aan het hart van het Android besturingssysteem liggen de 'Google Play-Services'.
 
 AOSP, ook gekend als Android Open Source Project, is de basis van het Android besturingssysteem. Zoals de naam zelf al zegt, is dit project volledig 'open-source'. Dit houdt in dat iedereen vrij is om de broncode te gebruiken en aan te passen. 
 
-De Android versie die in de meeste gevallen op mensen hun smartphone draait, is echter niet volledig 'open-source' maar ook voor een deeltje 'closed-source'. Smartphone producenten voeren vaak nog wijzigen door op AOSP, die invloed hebben op hoe visuele elementen er uitzien, extra functionaliteiten toevoegen en zorgen dat alle hardware die gebruikt wordt binnen het apparaat ook ondersteund wordt door apparaat-specifieke drivers. Zo ontwikkelt Xiaomi voor hun apparaten een eigen versie van Android die ze MIUI noemen, OnePlus ontwikkelt een eigen versie van Android die ze OxygenOS noemen, LG heeft LG UX, etc. Voor de westerse markt worden de Google Apps vaak opgenomen in het besturingssysteem. Google zelf biedt ook Android telefoons aan, zoals de reeds verouderde 'Nexus' apparaatlijn en de huidige 'Pixel' apparaatlijn. Zelf het besturingsysteem dat op deze apparaten draait is niet onaangepast, ook al wordt deze vaak als de 'schoonste' versie van Android beschouwd. Binnen hun versie van Android zijn ook de gepatenteerde Google Apps aanwezig \autocite{torres_stockandroid}. Steeds meer producenten bieden apparaten aan met een zo min mogelijk aangepaste versie van Android, om zo beroep te doen op mensen die op zoek zijn naar de 'stock experience'. Via het 'Android One' programma dat Android aanbiedt, is het ook makkelijker voor producenten om dit aan te bieden. Ook hierin zijn Google Apps inbegrepen. \autocite{android_androidone}.  Dit deel omvat dan alle applicaties van Google zelf, bv. GMail, Google Maps, en de onderliggende 'Google Play-Services' \autocite{amadeo_open-source}.
+De Android versie die in de meeste gevallen op mensen hun smartphone draait, is echter niet volledig 'open-source' maar ook voor een deeltje 'closed-source'. Smartphone producenten voeren vaak nog wijzigen door op AOSP, die invloed hebben op hoe visuele elementen er uitzien, extra functionaliteiten toevoegen en zorgen dat alle hardware die gebruikt wordt binnen het apparaat ook ondersteund wordt door apparaat-specifieke drivers. Zo ontwikkelt Xiaomi voor hun apparaten een eigen versie van Android die ze MIUI noemen, OnePlus ontwikkelt een eigen versie van Android die ze OxygenOS noemen, LG heeft LG UX, etc. Voor de westerse markt worden de Google Apps vaak opgenomen in het besturingssysteem. Google zelf biedt ook Android telefoons aan, zoals de reeds verouderde 'Nexus' apparaatlijn en de huidige 'Pixel' apparaatlijn. Zelf het besturingsysteem dat op deze apparaten draait is niet onaangepast, ook al wordt deze vaak als de 'schoonste' versie van Android beschouwd. Binnen hun versie van Android zijn ook de gepatenteerde Google Apps aanwezig \autocite{torres_stockandroid}. Steeds meer producenten bieden apparaten aan met een zo min mogelijk aangepaste versie van Android, om zo beroep te doen op mensen die op zoek zijn naar de 'stock experience'. Doordat er minder extra functionaliteiten moeten geïmplementeerd worden, zorgt dit voor minder benodigd werk aan ontwikkeling. Ook de update cyclus kan zo sneller verlopen, wat vaak een knelpunt is \autocite{manik_slow-updates}. 
 
-AOSP biedt een bundel API's  aan, maar Google zelf adviseert om de API's van de Google Play-Services te gebruiken. Deze zijn immers een stuk makkelijker te gebruiken zijn, en zorgen ervoor dat applicaties niet rechtstreeks afhankelijk zijn van Android besturingssysteem updates. Deze API's, zijn dan ook 'closed-source', tegenover de API's van AOSP, die 'open-source' zijn \autocite{marshall_google-play-services} . 
+Een fenomeen dat zich voordoet uit trage update cycli, is Android fragmentatie.
+Dit fenomeen houdt in dat een groot deel van de Android apparaten niet de mogelijkheid heeft om op de laatste versie van Android te draaien. Zo kan er geen gebruik gemaakt worden van de nieuwste functies, maar wat nog belangerijker is, is dat gebruikers niet beschikken over de nieuwste veiligheidsupdates, wat een zeer groot risico inhoudt. Op het 'Distribution dashboard' van Android, te zien op figuur \ref{fig:androidfragmentation}, wordt ook aangetoond dat op 7 mei 2019 nog maar 10,4\% van Android apparaten beschikt over de laatste versie van het besturingssysteem, namelijk Android Pie (9.0), die officiëel werdt vrijgegeven op 6 augustus 2018.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/fragmentation.png}
+    \caption{Distributie van Android versies op 7 mei 2019}
+    \label{fig:androidfragmentation}
+    \medskip
+    \small
+    https://developer.android.com/about/dashboards
+    
+\end{figure}
+
+Via het 'Android One' programma dat Android aanbiedt, is het makkelijker voor producenten om een 'stock experience' aan te bieden. Ook in deze versie van Android zijn Google Apps inbegrepen. \autocite{android_androidone}.  Dit deel omvat dan alle applicaties van Google zelf, bv. GMail, Google Maps, en de onderliggende 'Google Play-Services' \autocite{amadeo_open-source}.
+
+AOSP biedt een bundel API's  aan, maar Google zelf adviseert om de API's van de Google Play-Services te gebruiken. Deze zijn immers een stuk makkelijker te gebruiken zijn, en zorgen ervoor dat applicaties niet rechtstreeks afhankelijk zijn van Android besturingssysteem updates aangezien de Play-Services apart van het besturingssysteem wordt bijgewerkt. Applicatie ontwikkelaars kunnen dan ook gebruikmaken van de nieuwste functie's binnen deze API's. Zo moeten ze veel minder terugvallen op gedateerde API's om zo hun applicatie compatibel te maken met oudere versies van Android.  Deze API's van de Play Services zijn dan ook 'closed-source', tegenover de API's van AOSP, die 'open-source' zijn \autocite{marshall_google-play-services} . 
 
 Een voorbeeld hiervan is de locatie service. AOSP biedt een 'Location API' aan. Wanneer een applicatie gebruik maakt van deze API, moet er expliciet gekozen worden tussen 3 'location providers'. Elk van deze gebruikt een verschillende manier om de locatie van een gebruiker te bepalen \autocite{android_location-strategies}. De GPS provider gebruikt de fysieke GPS chip binnen het apparaat, en kan hierdoor ook de meest accurate locatiegegevens teruggeven, maar deze verbruikt ook het meeste energie. De netwerk provider maakt gebruik van de GPS chip, samen met gegevens van het mobiele netwerk om zo een snelle initiële verbinding te krijgen. De nauwkeurigheid van de locatiegegevens die hier worden teruggeven is lager, maar deze methode zorgt wel voor een lager energieverbruik. Tenslotte is er ook de passieve provider. Deze zal, in tegenstelling tot de andere providers, niet actief zoeken naar een verbinding. In plaats daarvan, maakt deze gebruik van locatiegegevens die verschaft werden door de andere providers, wanneer deze door andere applicaties worden aangesproken \autocite{idris_location-providers}. De Google Play Serivces Location API heeft als voordeel dat ontwikkelaars niet expliciet meer moeten kiezen tussen één van deze drie providers. Deze keuze wordt automatisch gemaakt zodat nauwkeurigheid en energieverbruik geoptimaliseerd wordt. \autocite{android_location-strategies}
 
@@ -29,17 +44,43 @@ Een voorbeeld hiervan is de locatie service. AOSP biedt een 'Location API' aan. 
     The Google Location Services API, part of Google Play Services, provides a more powerful, high-level framework that automatically handles location providers, user movement, and location accuracy. It also handles location update scheduling based on power consumption parameters you provide. In most cases, you'll get better battery performance, as well as more appropriate accuracy, by using the Location Services API.
 }
 
-Steeds meer en meer open-source applicaties, die voorheen te vinden waren binnen AOSP, worden achtergelaten en vervangen door een closed-source versie op de Google Play Store, de applicatie van Google waarmee gebruikers applicaties kunnen downloaden en installeren. Ook de Play Store maakt gebruik van de Google Play-Services om applicaties automatisch te kunnen updaten. Op deze manier probeert Google haar eigen applicaties zoveel mogelijk macht te geven tegenover de 'open-source' applicaties binnen AOSP. \autocite{amadeo_open-source}
-
-Doordat zeer veel applicaties dus rechtstreeks afhangen van de Google Play-Services, zullen veel applicaties ook regelrecht niet meer zoals gewenst functioneren wanneer de Play-Services niet aanwezig zijn of deze niet beschikt over de nodige toestemmingen \autocite{marshall_google-play-services}. Android handhaaft een toestemmingssysteem waarbij elke applicatie eerst toestemming moet vragen voordat deze aan gevoelige gebruikersdata kan. Voorbeelden van dergelijke machtigingen zijn toegang tot de camera, contacten en SMS informatie \autocite{android_permissions}. Standaard krijgt Google Play Services, als enige applicatie, alle machtigingen toegekend, zoals te zien in figuur \ref{fig:permissions1}. Wanneer er geprobeerd word om hier de machtigingen in te perken, wordt er ook gemeld dat dit kan leiden tot het verstoren van basisfunctionaliteiten, zoals te zien in figuur \ref{fig:permissions1}. \textquote{Als je deze machtiging weigert, kan het zijn dat basisfuncties van je apparaat niet meer werken zoals bedoeld.}.
+Steeds meer en meer open-source applicaties, die voorheen te vinden waren binnen AOSP, worden achtergelaten en vervangen door een closed-source versie op de Google Play Store, de applicatie van Google waarmee gebruikers applicaties kunnen downloaden en installeren. AOSP applicaties die achtergelaten werden zijn vaak niet meer zo robuust als Google's vervangende applicatie, en zien er ook gedateerd uit. Enkele voorbeelden van achtergelaten AOSP applicaties en hun vervangende product van Google, zijn te zien in figuren \ref{fig:googlesearch}, \ref{fig:googleplaymusic} en \ref{fig:googlecalendar}. Deze vervangende applicaties kunnen ook automatisch bijgewerkt worden, tegenover de AOSP applicaties die een systeemupdate vereisen om bijgewerkt te worden. Ook de Play Store maakt gebruik van de Google Play-Services om applicaties automatisch te kunnen updaten. Op deze manier probeert Google haar eigen applicaties zoveel mogelijk macht te geven tegenover de 'open-source' applicaties binnen AOSP. \autocite{amadeo_open-source}
 
 \begin{figure}
+    \centering
+    \includegraphics[width=0.55\textwidth]{img/googlesearch.jpg}
+    \caption{AOSP zoekapplicatie vergeleken met Google's zoekapplicatie}
+    \label{fig:googlesearch}
+    \autocite{amadeo_open-source}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.55\textwidth]{img/googleplaymusic.jpg}
+    \caption{AOSP muziekapplicatie vergeleken met Google's muziekapplicatie}
+    \label{fig:googleplaymusic}
+    \autocite{amadeo_open-source}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.55\textwidth]{img/googlecalendar.jpg}
+    \caption{AOSP kalender applicatie vergeleken met Google's kalender applicatie}
+    \label{fig:googlecalendar}
+    \autocite{amadeo_open-source}
+\end{figure}
+
+Doordat zeer veel applicaties dus rechtstreeks afhangen van de Google Play-Services, zullen veel applicaties ook regelrecht niet meer zoals gewenst functioneren wanneer de Play-Services niet aanwezig zijn of deze niet beschikt over de nodige toestemmingen \autocite{marshall_google-play-services}. Android handhaaft een toestemmingssysteem waarbij elke applicatie eerst toestemming moet vragen voordat deze aan gevoelige gebruikersdata kan. Voorbeelden van dergelijke machtigingen zijn toegang tot de camera, contacten en SMS informatie \autocite{android_permissions}. Standaard krijgt Google Play Services, als enige applicatie, alle machtigingen toegekend, zoals te zien in figuur \ref{fig:permissions1}. Wanneer er geprobeerd word om hier de machtigingen in te perken, wordt er ook gemeld dat dit kan leiden tot het verstoren van basisfunctionaliteiten, zoals te zien in figuur \ref{fig:permissions2}. \textquote{Als je deze machtiging weigert, kan het zijn dat basisfuncties van je apparaat niet meer werken zoals bedoeld.}.
+
+\begin{figure}
+    \centering
     \includegraphics[width=0.4\textwidth]{img/machtigingen.jpg}
     \caption{Screenshot van vereiste machtigingen van Google Play Services}
     \label{fig:permissions1}
 \end{figure}
 
 \begin{figure}
+    \centering
     \includegraphics[width=0.4\linewidth]{img/machtigingen_melding.jpg}
     \caption{Screenshot van melding bij inperken van machtigingen van Google Play Services}
     \label{fig:permissions2}
@@ -50,6 +91,28 @@ Doordat zeer veel applicaties dus rechtstreeks afhangen van de Google Play-Servi
 Een ander Google component binnen Android zijn alle Google applicaties. Afhankelijk van de fabrikant van de smartphone, zal er een heel pakket aan Google applicaties samen met de Google Play-Services, al dan niet geïnstalleerd zijn. Google applicaties zijn als systeem-applicaties geïnstalleerd, wat betekent dat ze zonder software aanpassingen niet van  het apparaat kunnen verwijderd worden. Wel is het mogelijk om deze applicaties 'uit te schakelen'. Dit houdt in dat ze niet meer op de achtergrond kunnen worden uitgevoerd, en dus ook geen meldingen kunnen sturen.
 
 Applicaties die hier binnenvallen zijn GMail, Google, Google Play Films, Google Play Store, etc.
+
+\section{Door Google verzamelde data}
+
+Deze sectie zal meer informatie geven over de data die door het Android besturingssysteem wordt verzameld. Dit sluit dan ook direct aan op de probleemstelling van deze bachelorproef. Op 15 augustus 2018 publiceerde \textcite{schmidt_google-data-collection}, een professor informatica aan Vanderbilt University, een rapport die in detail de data verzameling binnenin het Android besturingssysteem beschrijft. Deze studie van 55 pagina's richtte zich vooral op de oorpsrongen en toepassingen van data verzameling die Google gebruikt om zo gebruikersdata te verkrijgen uit beide Google applicaties en hun mobiele besturingssysteem, Android. De informatie binnen deze sectie werd verkgregen uit dit rapport.
+
+\subsection{Manieren van data-verzameling} \label{ways-of-data-collection}
+
+Google gebruikt verschillende manieren om data te verzamelen. De meest vanzelfsprekende methoden zijn 'actieve', waarbij de gebruiker rechstreeks en bewust informatie naar Google communiceert. Hieronder valt bijvoorbeeld de situatie waar een gebruiker inlogt op een door Google ontwikkelde applicatie, zoals YouTube, gmail, etc. Minder voor de hand liggende manieren die Google gebruikt om data te verzamelen, zijn 'passieve' methoden, waarbij een applicatie geïnstrumenteerd is om data te verkrijgen terwijl deze wordt uitgevoerd, mogelijk zonder dat de gebruiker zich daarvan bewust is. Deze passieve methoden komen voort uit platforms (e.g. Android en Google Chrome), applicaties (e.g. Google Search, Youtube, Google Maps), hulpmiddelen voor uitgevers (e.g. Google Analyticse n AdSense) en hulpmiddelen voor adverteerders (e.g. AdMob en Adwords).
+
+\subsection{Bevindingen onderzoek}
+
+Bij typisch internet gebruik van een Android gebruiker, gedurende één dag, kan Google reeds een grote hoeveelheid informatie te weten komen over de persoonlijke intresses van deze gebruiker. In een voorbeeldscenario waarbij een echte gebruiker met een nieuw Google account gebruik maakt van een Android telefoon voor haar dagelijkse routine, bleek dat op verschillende tijdstippen data werd verzameld zoals locatie van de gebruiker, genomen routes, aangekochte items en beluisterde muziek. Twee derden van de verzamelde data, werd verzameld door middel van passieve methoden, zonder dat de gebruiker hiervan op de hoogte wordt gebracht. Op het einde van de dag kon Google de interesses van de gebruiker vaststellen met een opmerkbare precisie.
+
+Het Android besturingssysteem is een essentiële factor bij Google's data-verzameling, aangezien Android meer dan 2 milljard maandelijkse acteive gebruikers heeft. Android helpt Google om persoonlijke gebruikersinformatie (e.g. naam, telefoonnummer, geboortedatum, postcode, en vaak het nummer van de gebruikte kredietkaart), gebruikersactiviteit (e.g. gebruikte applicaties, bezochte websites) en locatiegegevens te verzamelen. Android verstuurt op de achtergrond frequent gegevens naar Google betreffende de locatie van de gebruiker en apparaat gerelateerde informatie zoals applicatie gebruik, crash raporten, apparaatconfiguratie, backups en andere apparaatgerelateerde identificatiemiddelen.
+
+De Google Chrome internet browser helpt google om gebruikersdata te verzamelen van beide mobiele apparaten en desktop computers, met meer daan 2 miljard actieve installaties wereldwijd. Deze informatie wordt verzameld wanneer er bv. een online form wordt ingevuld, en dan doorgestuurd naar Google als deel van het data synchronisatie proces. Ook bezochte webpagina's en locatiegegevens worden naar Google toegestuurd.
+
+Beide Android zelf en Google Chrome stuurt data naar Google toe, zonder dat er gebruikersinteractie plaatsvindt. Het uitgevoerde experiment toonde aan dat een Android telefoon die niet bewogen, noch gebruikt werd, 340 keer locatiegegevens doorstuurde naar Google gedurende een periode van 24 uur, met een gemiddelde van 14 communicaties per uur. Deze doorgestuurde locatiegegevens nemen 35\% in van alle uitgestuurde steekproefdata.
+
+Wanneer een gebruiker in contact treed met een Android telefoon (e.g. navigeren door het besturingssysteem, webpagina's bezoeken, apps gebruiken), verhoogt het aantal passieve communicaties naar Google toe significant. Dit gebeurde ook in gevallen waar de gebruiker geen prominente Google applicaties zoals YouTube, Gmail, of Google Maps gebruikte. Deze stijging kan voornamelijk toegewezn worden door data activiteiten van Google's advertentie en uitgeversproducten, zoals Google Analytics, DoubleClick en AdWords. Deze data maakte 46\% uit van alle uitgaande verzoeken naar Google servers. Google verzamelde 1,4 keer sneller data, wanneer dit vergeleken wordt met het experiment waarbij de de Android telefoon volledig stil ligt, zonder gebruikersinteractie. Op vlak van hoeveelheid, communiceerden Google's servers 11.6 MB data met het Android apparaat, per dag. Uit dit experiment kan worden afgeleid dat, zelfs zonder interactie met Google applicaties, Google nog steeds een aanzienelijke hoeveelheid data kan verzamelen door middel van haar advertentie- en uitgeversproducten.
+
+Advertentie-ID's, die vermeend anoniem zijn van gebruikers, verzamelen  gebruikers' activeiten data bij het gebruik van applicaites en het bezoeken van webpaginas van een derde partij. Deze ID's kunnen gelinkt worden aan de Google identiteit van een gebruiker, doordat identificatiegegevens van apparaatsniveau worden doorgegeven aan Google servers door een Android apparaat. Eveneens wordt ook het DoubleClick cookie ID beschouwd als anoniem van gebruikers. Deze volgt gebruikeres activiteiten op webpagina's van een derde partij. Ook deze kunnen worden gelinkt aan een Google account wanneer deze gebruiker een Google applicatie gebruikt in dezelfde browser als degene waarin de webpagina van een derde partij werd bezocht. In het algemeen tonen de bevindingen aan dat Google de mogelijkheid heeft om anoniem verzamelde data door middel van passieve methoden kan verbinden met de persoonlijke informatie van een gebruiker.
 
 \section{Mogelijke ontgoogle manieren}
 
@@ -65,13 +128,13 @@ Gebruik van een Google account word aangeraden bij het gebruik van een Android t
 
 \subsubsection{Niet gebruiken van Google applicaties}
 Door Google applicaties regelrecht niet te gebruiken, is de grip van Google op Android telefoons al direct een heel stuk zwakker.
-Zoals eerder al gezegd, is het niet mogelijk om Google applicaties te verwijderen aangezien ze geïnstalleerd zijn als systeem-applicaties. Ze kunnen echter wel uitgeschakeld worden. Door Google applicaties niet te gebruiken missen we wel redelijk wat basisfunctionaliteiten. De applicaties die dan worden misgelopen, zijn onder andere Google Maps (online kaartendienst), GMail (mail client), Google Foto's (applicatie om foto's bij te houden en te synchroniseren met de cloud), Chrome (internetbrowser), YouTube (online videoplatform), Google Calendar (agenda applicatie), Google Keyboard (toetsenbord), Google Play Store (app-store), etc.  Gelukkig biedt het internet meer dan genoeg alternatieven voor elke Google applicatie. Deze methode zorgt er niet voor dat Google van het besturingssysteem verbannen wordt en het apparaat zal nog steeds communiceren met Google.
+Zoals eerder al gezegd, is het niet mogelijk om Google applicaties te verwijderen aangezien ze geïnstalleerd zijn als systeem-applicaties. Ze kunnen echter wel uitgeschakeld worden. Door Google applicaties niet te gebruiken missen we wel redelijk wat basisfunctionaliteiten. De applicaties die dan worden misgelopen, zijn onder andere Google Maps (online kaartendienst), GMail (mail client), Google Foto's (applicatie om foto's bij te houden en te synchroniseren met de cloud), Chrome (internetbrowser), YouTube (online videoplatform), Google Calendar (agenda applicatie), Google Keyboard (toetsenbord), Google Play Store (app-store), etc.  Gelukkig biedt het internet meer dan genoeg alternatieven voor elke Google applicatie. Deze methode zorgt er niet voor dat Google van het besturingssysteem verbannen wordt en het apparaat zal nog steeds communiceren met Google, in de vorm van 'passieve' methoden, zoals besproken in \ref{ways-of-data-collection}. Data die dan nog steeds naar Google kan worden gecommuniceerd zijn bijvoorbeeld locatiegegevens van een gebruiker.
 
 \subsubsection{Uitschakelen van persoonlijke advertenties}
 Een mogelijkheid die Google ons geeft, is het uitschakelen van persoonlijke advertenties. Door gebruik te maken van een 'advertising ID' kan Google externen toegang geven tot gebruikersinformatie zoals locatie en apps die gebruikt worden. Google geeft ons de mogelijkheid om toegang tot deze 'advertising ID' uit te schakelen. Dit kan een gebruiker doen door eerst naar het instellingen menu te navigeren, 'Google' te selecteren, en vervolgens 'Advertenties' te selecteren. Hier kan je je door middel van een schuifbalkje afmelden voor personalisatie van advertenties. \autocite{knight_degoogle}
 
 \subsubsection{Veranderen van de standaard DNS server}
-Een DNS server is een server, die wanneer je naar een bepaalde site surft, de vertaalstap maakt tussen een domein en het IP adres van de bijhorende webruimte. Als de DNS server van een Android smartphone is ingesteld op de DNS server van Google, kan google uw surfgedrag opvolgen om zo een profiel op te bouwen voor adverteerders. Door de DNS server aan te passen naar één van uw provider of andere aanbieder, kunt u dit voorkomen.
+Een DNS server is een server, die wanneer je naar een bepaalde site surft, de vertaalstap maakt tussen een domein en het IP adres van de bijhorende webruimte. Als de DNS server van een Android smartphone is ingesteld op de DNS server van Google, kan google het surfgedrag van de gebruiker opvolgen om zo een profiel op te bouwen voor adverteerders. Door de DNS server aan te passen naar één van een andere provider of aanbieder, kan dit worden voorkomen.
 
 Tot Android 8.0, ook wel gekend als Android Oreo, was er geen mogelijkheid om de DNS server bij gebruik van het mobiele netwerk aan te passen, en enkel gelimiteerde mogelijkheden om deze aan te passen bij gebruik van Wi-Fi. Er bestaan echter wel applicaties die door middel van een 'omleiding' en het gebruik van de VPN functie op Android toch hetzelfde resultaat kunnen bekomen \autocite{knight_degoogle}. 
 
@@ -88,7 +151,7 @@ Om een custom ROM te installeren, zijn er wel enkele vereisten waaraan een appar
 
 Als er binnen de custom ROM geen Google software te vinden is, kan een Android telefoon die deze versie van het besturingssysteem draait als 'ontgoogelt' beschouwd worden. Dit betekent echter niet dat alle functionaliteiten die voordien werkten, nog steeds allemaal zullen werken. Wanneer applicatie-ontwikkeleraars kiezen om tijdens de ontwikkeling verder te werken met een API die wordt aangeboden door de Google Play-Services, en niet op een API van AOSP, dan zal deze applicatie hoogstwaarschijnlijk niet werken naar behoren, of zelfs direct crashen wanneer deze geopend wordt.
 
-LineageOS, één van de bekendere custom ROM's, wordt volledig zonder Google Apps geleverd. Dit doen ze omdat licentiebeperkingen dit niet toelaten \autocite{lineage_google-apps}. Het is voor ontwikkelaars van deze custom ROM meestal ook niet interessant om Google Apps op te nemen, aangezien deze zeer vaak updaten. Ze zouden dan bij elke Google App update ook hun ROM moeten updaten. Ook is het doelpubliek van custom ROM's vaak op zoek naar een open-source, AOSP ervaring van Android. Daardoor worden Google Apps vaak regelrecht weggelaten \autocite{cawley_gapps}. Hierna is wel nog steeds mogelijk om Google Apps, of een andere implementatie hiervan, apart te installeren. De meest bekende optie om de meeste recente versie van Google Apps te installeren, is 'Open GApps'. Op hun site wordt deze als volgt beschreven: \blockcquote{opengapps_about}{
+LineageOS, één van de bekendere custom ROM's, wordt volledig zonder Google Apps geleverd. Dit doen ze omdat licentiebeperkingen dit niet toelaten \autocite{lineage_google-apps}. Het is voor ontwikkelaars van deze custom ROM meestal ook niet interessant om Google Apps op te nemen, aangezien deze zeer vaak worden bijgewerkt. Ze zouden dan bij elke Google App update ook hun ROM moeten bijwerken. Ook is het doelpubliek van custom ROM's vaak op zoek naar een open-source, AOSP ervaring van Android. Daardoor worden Google Apps vaak regelrecht weggelaten \autocite{cawley_gapps}. Hierna is wel nog steeds mogelijk om Google Apps, of een andere implementatie hiervan, apart te installeren. De meest bekende optie om de meeste recente versie van Google Apps te installeren, is 'Open GApps'. Op hun site wordt deze als volgt beschreven: \blockcquote{opengapps_about}{
     The Open GApps Project is an open-source effort to script the automatic generation of up-to-date Google Apps packages.
     On OpenGApps.org you can find more information about the project effort and also pre-built Google Apps packages generated by the OpenGApps.org buildbot.
 }
@@ -108,7 +171,7 @@ Er bestaat ook een open-source implementatie van de Google Play-Services, genaam
 }
 Zoals hierboven vermeld, probeert microG een vervanging te zijn voor de gesloten software van Google, de Google Play-Services. Ook wordt er gezegd dat de implementatie van de microG componenten verre van compleet zijn. Het feit dat microG de functionaliteit van de Google Play-Services wilt nabootsen, impliceert ook dat de nieuwste functies niet direct beschikbaar zullen zijn binnen dit alternatief. Naarmate de ontwikkelaar-gemeenschap achter dit project blijft groeien zal deze functionele achterstand wel inkrimpen.
 
-MicroG maakt het mogelijk om terug de Google Play Store te gebruiken, maar biedt ook een aparte applicatie aan genaamd 'FakeStore'. Deze zorgt ervoor dat andere applicaties denken dat de Play Store aanwezig is, terwijl dit natuurlijk niet zo is. Verder biedt deze applicatie niets van functionaliteit. Alternatieve app-stores zoals F-Droid of de Yalp Store zijn ook mogelijke opties. \autocite{shadow53_play-store}
+MicroG maakt het mogelijk om terug de Google Play Store te gebruiken, maar biedt ook een aparte applicatie aan genaamd 'FakeStore'. Deze zorgt ervoor dat andere applicaties denken dat de Play Store aanwezig is, terwijl dit natuurlijk niet zo is. Verder biedt deze applicatie niets van functionaliteit. Alternatieve app-stores zoals F-Droid, de Yalp Store of de Amazon Appstore zijn ook mogelijke opties. \autocite{shadow53_play-store} De Amazon Appstore wordt standaard meegeleverd met apparaten die FireOS als besturingssysteem gebruiken. Amazon probeert zo om Google volledig te vermijden op hun platform, samen met een paket van nog alternatieve services die een vervanging bieden voor die van Google.
 
 \paragraph*{SafetyNet}
 
@@ -116,7 +179,7 @@ Aan bovenstaande methode zijn er ook negatieve kanten. Android heeft namelijk ve
 
 Wanneer er een custom ROM geïnstalleerd is, is de bootloader ook ontgrendeld. Aan de hand van de CTS (Compatibility Test Suite) kan Google bekijken of er ook maar enige aanpassingen zijn toegepast op het systeem. Een unlocked bootloader valt hier ook onder.
 
-\subparagraph{SafetyNet omzeilen}
+\paragraph{SafetyNet omzeilen}
 Om toch gebruik te kunnen maken van applicaties die het slagen van SafetyNet als vereiste hebben om goed te kunnen functioneren, bestaan er ook oplossingen. Één hiervaan heet Magisk. Origineel is Magisk een methode om 'root access' te verschaffen, zonder symsteempartities aan te passen \autocite{topjohnwu_magisk}. Naast dit, biedt Magisk ook methoden om modificaties voor bijna alle systeem-integriteit controle's te verbergen. Dit kan ook gelezen worden op de GitHub pagina van dit project.
 \blockcquote{topjohnwu_magiskgithub}{
  Magisk is a suite of open source tools for customizing Android, supporting devices higher than Android 4.2 (API 17). It covers the fundamental parts for Android customization: root, boot scripts, SELinux patches, AVB2.0 / dm-verity / forceencrypt removals etc.
@@ -124,6 +187,7 @@ Om toch gebruik te kunnen maken van applicaties die het slagen van SafetyNet als
  Furthermore, Magisk provides a Systemless Interface to alter the system (or vendor) arbitrarily while the actual partitions stay completely intact. With its systemless nature along with several other hacks, Magisk can hide modifications from nearly any system integrity verifications used in banking apps, corporation monitoring apps, game cheat detections, and most importantly Google's SafetyNet API.
 }
 
+Het verkrijgen van root toegang geeft de gebruiker zeer veel macht over het apparaat. Enkele voorbeelden van zaken die mogelijk zijn door het rooten van een Android apparaat, zijn het zien van alle bestanden in het bestandsysteem, een volledige backup nemen van alle applicaties, systeemapplicaties verwijderen, een systeemwijde adblocker, etc. De mogelijkheden zijn haast onbeperkt. Het rooten van een Android apparaat heeft ook nadelen. Een geroot Android apparaat schaadt meestal direct de garantie (afhankelijk van de fabrikant). Het proces, wanneer niet goed uitgevoerd, kan ook zorgen dat het apparaat in een 'gebrickte' staat terechtkomt. In deze staat is het apparaat volledig onbruikbaar. Om uit deze staat te raken is in de meeste gevallen een reeks specifieke stappen benodigd, afhankelijk van het specifieke probleem. Wanneer root toegang dan succesvol is verschaft, is het ook zeer makkelijk om een kwadaardige app volledige toegang te geven over uw apparaat of een instelling fout aan te passen. Deze kunnen dan ook leiden tot een onbruikbaar apparaat \autocite{phelps_root-cons}. Hoewel het Magisk project volledig open-source is, krijgt nog steeds een externe ontwikkelaar de macht over het Android apparaat waarop deze is geïnstalleerd om root toegang te verkrijgen.
  
 
 
