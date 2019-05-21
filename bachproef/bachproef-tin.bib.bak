@@ -185,11 +185,12 @@
   url    = {https://www.themobileindian.com/news/why-android-updates-take-too-long-19280},
 }
 
-@Electronic{Phelps Thomas,
-  title = {To Root or Not to Root an Android Phone},
-  year  = {2019},
-  date  = {2019-05-06},
-  url   = {https://www.lifewire.com/root-or-not-root-android-1616838},
+@Electronic{phelps_root-cons,
+  author = {Phelps Thomas},
+  title  = {To Root or Not to Root an Android Phone},
+  year   = {2019},
+  date   = {2019-05-06},
+  url    = {https://www.lifewire.com/root-or-not-root-android-1616838},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
