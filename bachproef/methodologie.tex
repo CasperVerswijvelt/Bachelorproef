@@ -5,16 +5,6 @@
 \chapter{Methodologie}
 \label{ch:methodologie}
 
-%% TODO: Hoe ben je te werk gegaan? Verdeel je onderzoek in grote fasen, en
-%% licht in elke fase toe welke stappen je gevolgd hebt. Verantwoord waarom je
-%% op deze manier te werk gegaan bent. Je moet kunnen aantonen dat je de best
-%% mogelijke manier toegepast hebt om een antwoord te vinden op de
-%% onderzoeksvraag.
-
-%%\lipsum[21-25]
-%%\section{Algemene opzet}
-%%\label{sec:opzetexperiment}
-
 Binnen dit experiment zullen er concreet 3 specifieke toestanden van een Android apparaat met elkaar vergeleken worden. Het eerste geval is een Android apparaat waarop er nog geen enkele wijziging is doorgevoerd. Deze staat dus nog gelijk met de fabrieksinstellingen van het apparaat. Bij het tweede geval zijn de instellingen zo aangepast om de dataverzameling van Google te minimaliseren. Bij deze toestand wordt er optimaal gebruik gemaakt van de mogelijkheden die Google en het Android besturingssysteem zodat er zo min mogelijk data wordt verzameld. In het derde geval zullen er methodes gebruikt worden, die niet direct door Google of Android zelf worden ondersteund, om zo Google volledig te proberen elimineren van het apparaat.
 
 Bij deze drie gevallen zal er in detail beschreven worden welke stappen precies moeten worden genomen om de testtoestand van het apparaat te bekomen. Daarna zal het internetverkeer van elk geval geanalyseerd worden gedurende 1 uur. Concreet wordt er hier geregistreerd hoeveel keer er gemiddeld data wordt verstuurd naar specifieke internet domeinen van Google.
@@ -43,15 +33,17 @@ Binnen dit geval zal gebruik gemaakt worden van een Android apparaat waarbij bui
 
 \subsection{Testgeval 2: Android met aangepaste instellingen}
 \label{sec:testgeval2}
+Binnen dit geval zal gebruik gemaakt worden van een Android apparaat waarbij de instellingen zo zijn aangepast zodat de verzameling van data geminimaliseerd wordt. Dit zal gedaan worden via de 'zachte' methoden die besproken werden in het literatuuronderzoek (\ref{softmethods}).
 
 %TODO testgeval 2
 
-\subsection{Testgeval 3: Volledig aangepaste Android}
+\subsection{Testgeval 3: Aangepaste versie van Android}
 \label{sec:testgeval3}
+Binnen dit geval zal gebruikt gemaakt worden van een Android apparaat waarop LineageOS op geïnstalleerd. LineageOS is een custom ROM (zie \ref{installcustomrom}) waarbij Google Apps niet is inbegrepen in het besturingssysteem. Er zal gebruik gemaakt worden van de laatste officiële versie van LineageOS voor dit apparaat, namelijk 16.0, die te vinden is op \url{https://download.lineageos.org/cheeseburger} (de term 'cheeseburger' in de URL is de codenaam voor de 'Oneplus 5', het testapparaat).
 
 %TODO testgeval 3
 
-\section{Meting software}
+\section{Software voor monitoring netwerkactiviteit}
 \label{sec:metingsoftware}
 Het verzamelen van data die de netwerkactiviteit van het apparaat beschrijft, zal op een gelijkaardige manier worden gedaan zoals in het onderzoek door \cite{schmidt_google-data-collection}, wat ook in de litatuurstudie werd besproken. Om exact te kunnen zien welke data er precies binnenkomt en buitengaat via het internet op het apparaat, is er extra software nodig. Deze optie wordt namelijk niet gegeven door het Android besturingssysteem zelf. De software die wij gebruiken moet voldoen aan enkele voorwaarden:
 \begin{itemize}
@@ -59,4 +51,36 @@ Het verzamelen van data die de netwerkactiviteit van het apparaat beschrijft, za
     \item De software mag geen aanpassing maken aan of vereisen van het apparaat.
     \item De software moet de gevraagde data verzamelen zonder dat deze wordt beïnvloed door de software zelf.
 \end{itemize}
-Er bestaan reeds veel applicaties die rechstreeks vanaf het Android apparaat deze data kan verzamelen. Velen hiervan vallen al direct weg, aangezien ze root toegang vereisen. De 'geroote' toestand is namelijk een voorwaarde van de testgevallen, waardoor we deze doorheen de gevallen niet ingeschakeld kunnen houden.%TODO VERDER
+Er bestaan reeds veel applicaties die rechstreeks vanaf het Android apparaat deze data kan verzamelen. Velen hiervan vallen al direct weg, aangezien ze root toegang vereisen. De 'geroote' toestand is namelijk een voorwaarde van de testgevallen, waardoor we deze doorheen de gevallen niet ingeschakeld kunnen houden. 
+
+De uiteindelijke gekozen software is 'Charles Proxy'. De techniek die hierbij wordt gehanteerd heet 'MITM proxy', wat letterlijk 'Man-In-The-Middle proxy' betekent. Zoals de naam al zegt is dit een proxy die als 'tussenman' tussen het apparaat en het internet zal staan, en zo alle netwerkactiveit zal kunnen monitoren. Wanneer deze applicatie draait op een computer binnen een netwerk, moeten er op het Android apparaat nog 2 extra instellingen gebeuren voordat al het netwerkverkeer kan worden opgevolgd. Eerst en vooral moet het Android apparaat verbonden zijn met hetzelfde netwerk als de computer waarop Charles draait. Daarna moet er gekeken worden wat het lokale IP-adres is van deze computer binnen het netwerk. Op windows computers kan deze gevonden worden via het 'ipconfig' commando en op Mac computers via het 'ifconfig' commando. Eens gevonden moet dit IP-adres als proxy ingevoerd worden in de netwerkinstellingen binnen het Android apparaat. Dit kan gedaan worden door te navigeren naar de Wi-Fi instellingen, het verbonden netwerk te selecteren en dan op het potloodje te drukken om de instellingen van dit netwerk te wijzigen. Bij 'Hostnaam van proxy' moet dan het lokaal IP-adres van de computer worden ingegeven, en in het 'Proxy-Poort' veld 8888 (Dit is de standaard poort die Charles Proxy gebruikt). Vanaf nu zal al het netwerkverkeer door deze proxy getunnelt worden, maar als er naar een site wordt gesurft op het Android apparaat zal er nog steeds een melding worden weergegeven die zegt dat er geen internetverbinding is. Dit komt door 2 redenen.
+
+\begin{itemize}
+    \item De Charles applicatie heeft het Android apparaat nog geen toegang gegeven
+    \item Charles gebruikt zijn eigen SSL certificaat, dat nog niet als een vertrouwd certificaat wordt beschouwd binnen het Android apparaat.
+\end{itemize}
+
+Zodra het Android apparaat een verbinding probeert te maken met een website zal Charles een melding tonen die vraagt of het apparaat dat probeert verbinding te maken wel degelijk toegang mag hebben tot de proxy, zoals te zien in figuur \ref{fig:charlesmelding}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{img/charlesmelding.png}
+    \caption{Screenshot van de melding die Charles geeft wanneer er een nieuwe onbekende verbinding binnenkomt}
+    \label{fig:charlesmelding}
+\end{figure}
+
+\section{Verloop experiment}
+\label{sec:conditionsexperiment}
+Binnen deze sectie zal worden besproken hoe het experiment precies zal verlopen en welke voorwaarden van toepassing zijn.
+
+\subsection{Uitschrijven stappenplan per testgeval}
+Per testgeval zal een stappenplan worden uitschreven dat in detail vermeld hoe de juiste situatie van het testgeval bereikt wordt. Indien hier moeilijkheden bij verlopen, dienen die ook opgenomen te worden.
+
+\subsection{Meten van verzamelde data}
+Bij alle testgevallen zullen Wi-Fi, bluetooth, en locatie ingeschakeld zijn. Dit wordt gedaan zodat er op elk moment genoeg data is die mogelijks naar Google kan worden verzonden. Wanneer de mogelijk te verzamelen data groter is, zorgt dit ook voor preciesere metingen van de werkelijk doorgestuurde data. Ook  testen we tot op welke mate we dataverzameling kunnen beperken sonder functionaliteit te beperken. Wanneer we deze verbindingsmethoden uitschakelen, wordt de functionaliteit van het apparaat beperkt. Het testapparaat zal via een 5 GHz Wi-Fi verbinding verbonden zijn met een beveiligd Wi-Fi netwerk. Mobiele data zal uitgeschakeld blijven, aangezien we via de gebruikte software hiervan de netwerkactiviteit niet kunnen monitoren.
+
+Gedurende 1 uur zal de netwerkactiviteit van het apparaat gemonitord worden. Tijdens deze tijd zal het apparaat stilliggen en zal er ook geen interactie met het apparaat gebeuren. Het apparaat zal ook zodanig ingesteld zijn dat deze niet in slaapmodus valt, wat mogelijk de resultaten kan beïnvloeden. Er wordt niet gebruik gemaakt van modussen die de batterijduur zouden verlengen, en het apparaat zal tijdens het experiment aangesloten zijn aan zijn oplader.
+
+
+
+
