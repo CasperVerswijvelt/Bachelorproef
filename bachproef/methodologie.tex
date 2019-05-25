@@ -60,7 +60,7 @@ De uiteindelijke gekozen software is 'Charles Proxy'. De techniek die hierbij wo
     \item Charles gebruikt zijn eigen SSL certificaat, dat nog niet als een vertrouwd certificaat wordt beschouwd binnen het Android apparaat.
 \end{itemize}
 
-Zodra het Android apparaat een verbinding probeert te maken met een website zal Charles een melding tonen die vraagt of het apparaat dat probeert verbinding te maken wel degelijk toegang mag hebben tot de proxy, zoals te zien in figuur \ref{fig:charlesmelding}.
+Zodra het Android apparaat een verbinding probeert te maken met een website zal Charles een melding tonen die vraagt of het apparaat dat probeert verbinding te maken wel degelijk toegang mag hebben tot de proxy, zoals te zien in figuur \ref{fig:charlesmelding}. Hier dient op 'allow' geklikt te worden. 
 
 \begin{figure}
     \centering
@@ -68,6 +68,40 @@ Zodra het Android apparaat een verbinding probeert te maken met een website zal 
     \caption{Screenshot van de melding die Charles geeft wanneer er een nieuwe onbekende verbinding binnenkomt}
     \label{fig:charlesmelding}
 \end{figure}
+
+Vanaf dit moment kan het Android apparaat theorethisch gezien verbinden met het internet, doorheen de proxy. Applicaties zullen dit echter niet toestaan, omdat het SSL certificaat dat Charles gebruikt niet gekend is (figuur \ref{fig:charlescantconnect}). Door op het apparaat naar \url{http://www.charlesproxy.com/getssl/} (de enige pagina die browser wel zal kunnen bereiken) te surfen, wordt het Charles certificaat gedownload, en kan deze geïnstalleerd worden op het apparaat, zoals te zien in figuur \ref{fig:charlessslcertificateinstall}.
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{img/charlescantconnect.jpg}
+        \caption{Sites kunnen niet bereikt worden door een onveilig certificaat}
+        \label{fig:charlescantconnect}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{img/charlessslcertificateinstall.jpg}
+        \caption{Installatie van het gedownloade Charles SSL certificaat}
+        \label{fig:charlessslcertificateinstall}
+    \end{subfigure}
+    \caption{Het Charles SSL certificaat downloaden en gebruiken}
+\end{figure}
+
+In de 'SSL Proxying Settings' moet ingesteld worden dat SSL  verzoeken naar alle domeinen door de proxy gehaald worden, zodat ook hiervan de inhoud in vlakke tekst kan bekeken worden. Deze instelling is te zien in figuur \ref{fig:charlessslsettings} door middel van de locatie '*:*' (alle domeinen en alle poorten).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/charlessslsettings.png}
+    \caption{Screenshot van de correcte SSL Proxying Settings binnen Charles}
+    \label{fig:charlessslsettings}
+\end{figure}
+
+Dit is jammergenoeg nog niet het einde van het SSL-certificaat-verhaal. Apps die ontwikkeld zijn met Android 6.0 of lager als doelversie, zullen automatisch certificaten aanvaarden die door gebruikers geïnstalleerd zijn. Vanaf dat de applicatie gericht is op een hogere van Android, heeft de ontwikkelaar de mogelijkheid om 'SSL Certificate Pinning' toe te passen. Dit houdt in dat de ontwikkelaar, indien hij/zij dit wil, kan afdwingen dat er een bepaald certificaat wordt gebruikt wanneer er met zijn server gecommuniceerd wordt \autocite{wass_ssl-pinning}. Hier zal het Charles certificaat afgewezen worden, de aanvraag zal falen en de data die voortkomt uit het monitoren van de netwerkactiviteit is mogelijk niet meer volledig correct.
+
+Er bestaan wel tools zoals 'frida' die tijdens het uitvoeren van een bepaalde applicatie het afgedwongen certificaat kunnen wijzigen, waardoor aanvragen wel doorkomen. Deze methoden vereisen echter root en zijn niet geschikt voor gebruik in dit experiment.
+
+%TODO EMAIL DOUGLAS C SCHMIDT PLS ANTWOORD AUB PLS I NEED U
 
 \section{Verloop experiment}
 \label{sec:conditionsexperiment}
@@ -79,7 +113,7 @@ Per testgeval zal een stappenplan worden uitschreven dat in detail vermeld hoe d
 \subsection{Meten van verzamelde data}
 Bij alle testgevallen zullen Wi-Fi, bluetooth, en locatie ingeschakeld zijn. Dit wordt gedaan zodat er op elk moment genoeg data is die mogelijks naar Google kan worden verzonden. Wanneer de mogelijk te verzamelen data groter is, zorgt dit ook voor preciesere metingen van de werkelijk doorgestuurde data. Ook  testen we tot op welke mate we dataverzameling kunnen beperken sonder functionaliteit te beperken. Wanneer we deze verbindingsmethoden uitschakelen, wordt de functionaliteit van het apparaat beperkt. Het testapparaat zal via een 5 GHz Wi-Fi verbinding verbonden zijn met een beveiligd Wi-Fi netwerk. Mobiele data zal uitgeschakeld blijven, aangezien we via de gebruikte software hiervan de netwerkactiviteit niet kunnen monitoren.
 
-Gedurende 1 uur zal de netwerkactiviteit van het apparaat gemonitord worden. Tijdens deze tijd zal het apparaat stilliggen en zal er ook geen interactie met het apparaat gebeuren. Het apparaat zal ook zodanig ingesteld zijn dat deze niet in slaapmodus valt, wat mogelijk de resultaten kan beïnvloeden. Er wordt niet gebruik gemaakt van modussen die de batterijduur zouden verlengen, en het apparaat zal tijdens het experiment aangesloten zijn aan zijn oplader.
+Gedurende 1 uur zal de netwerkactiviteit van het apparaat gemonitord worden. Tijdens deze tijd zal het apparaat stilliggen en zal er ook geen interactie met het apparaat gebeuren. Het apparaat zal ook zodanig ingesteld zijn dat deze niet in slaapmodus valt, wat mogelijk de resultaten kan beïnvloeden. Er wordt niet gebruik gemaakt van modussen die de batterijduur zouden verlengen, en het apparaat zal tijdens het experiment aangesloten zijn aan zijn oplader. Voor elk testgeval zal een nieuw Google account gebruikt worden, indien vereist. Dit experiment kan meerdere keren uitgevoerd worden voor een betere benadering van realistische data.
 
 
 
