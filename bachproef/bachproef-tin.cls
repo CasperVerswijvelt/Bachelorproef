@@ -21,6 +21,11 @@
 % Overerven van de ``book''-klasse
 \LoadClass[12pt,fleqn]{book}
 
+%------
+% EXTRA
+%-------
+\usepackage{subcaption}
+
 %-------------------------------------------------------------------------------
 % Algemene vormgeving, pagina-indeling
 %-------------------------------------------------------------------------------
