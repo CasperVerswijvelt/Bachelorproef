@@ -456,7 +456,7 @@ innerbottommargin=5pt]{cBox}
 \newcommand{\thepartimage}{}%
 \newcommand{\partimage}[1]{\renewcommand{\thepartimage}{#1}}%
 \def\@part[#1]#2{%
-\ifnum \c@secnumdepth >-2\relax%
+\ifnum \c@ >-2\relax%
 \refstepcounter{part}%
 \addcontentsline{toc}{part}{\texorpdfstring{\protect\@mypartnumtocformat{\thepart}{#1}}{\partname~\thepart\ ---\ #1}}
 \else%
@@ -470,7 +470,7 @@ innerbottommargin=5pt]{cBox}
 \fill[maincolor!20](0cm,0cm) rectangle (\paperwidth,-\paperheight);
 \node[anchor=north] at (4cm,-3.25cm){\color{maincolor!40}\fontsize{220}{100}\sffamily\bfseries\@Roman\c@part};
 \node[anchor=south east] at (\paperwidth-1cm,-\paperheight+1cm){\parbox[t][][t]{8.5cm}{
-\printcontents{l}{0}{\setcounter{tocdepth}{1}}%
+\printcontents{l}{0}{\setcounter{}{1}}%
 }};
 \node[anchor=north east] at (\paperwidth-1.5cm,-3.25cm){\parbox[t][][t]{15cm}{\strut\raggedleft\color{white}\fontsize{30}{30}\sffamily\bfseries#2}};
 \end{tikzpicture}};
