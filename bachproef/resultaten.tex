@@ -10,7 +10,7 @@
 \subsection{Terugkerende stappen}
 \label{recurringsteps}
 
-Hier worden stappen gedefinieerd die doorheen de testgevallen gebruikt worden. Let wel: niet bij elk testgeval zijn alle stappen van toepassing. Enkel wanneer er bij een testgeval wordt verwezen naar één van deze stappen, moet deze worden uitgevoerd.
+Hier worden stappen gedefinieerd die doorheen de testgevallen gebruikt worden. Let wel: niet bij elk testgeval zijn alle terugkerende stappen van toepassing. Enkel wanneer er bij een testgeval wordt verwezen naar één van deze stappen, moet deze worden uitgevoerd.
 
 \begin{enumerate}
     
@@ -58,19 +58,19 @@ Hier worden stappen gedefinieerd die doorheen de testgevallen gebruikt worden. L
 Om de toestand van dit testgeval te bekomen, moeten volgende stappen uitgevoerd worden.
 \begin{enumerate}
     \item 
-    \nameref{itm:factoryreset} (Stap \ref{itm:factoryreset} van terugkerende stappen (\ref{recurringsteps})
+    \nameref{itm:factoryreset} (Stap \ref{itm:factoryreset} van terugkerende stappen (\ref{recurringsteps}))
     
     \item 
-    \nameref{itm:initialsetup} (Stap \ref{itm:initialsetup} van terugkerende stappen (\ref{recurringsteps})
+    \nameref{itm:initialsetup} (Stap \ref{itm:initialsetup} van terugkerende stappen (\ref{recurringsteps}))
     
     \item 
     Stel de Google applicaties in. Ga één voor één door de applicaties in figuur \ref{fig:googleapps} en doorloop  het initiële setup proces. Wanneer er gevraagd wordt om machtigingen te verlenen aan de applicatie, druk dan op toestaan. Open ook de Google Play Store, ga naar 'Mijn apps en games' en druk op 'Alles updaten'.
     
     \item 
-    \nameref{itm:developersettings} (Stap \ref{itm:developersettings} van terugkerende stappen (\ref{recurringsteps})
+    \nameref{itm:developersettings} (Stap \ref{itm:developersettings} van terugkerende stappen (\ref{recurringsteps}))
     
     \item 
-    \nameref{itm:disablesleep} (Stap \ref{itm:disablesleep} van terugkerende stappen (\ref{recurringsteps})
+    \nameref{itm:disablesleep} (Stap \ref{itm:disablesleep} van terugkerende stappen (\ref{recurringsteps}))
 \end{enumerate}
 
 
@@ -80,21 +80,21 @@ Om de toestand van dit testgeval te bekomen, moeten volgende stappen uitgevoerd 
 
 \begin{enumerate}
     \item 
-    \nameref{itm:factoryreset} (Stap \ref{itm:factoryreset} van terugkerende stappen (\ref{recurringsteps})
+    \nameref{itm:factoryreset} (Stap \ref{itm:factoryreset} van terugkerende stappen (\ref{recurringsteps}))
     
     \item 
-    \nameref{itm:initialsetup} (Stap \ref{itm:initialsetup} van terugkerende stappen (\ref{recurringsteps})
+    \nameref{itm:initialsetup} (Stap \ref{itm:initialsetup} van terugkerende stappen (\ref{recurringsteps}))
     
     \item Schakel persoonlijke advertenties uit. Navigeer hievoor naar 'Instellingen' > 'Google' > 'Advertenties'. Zet hier 'Afmelden voor personalisatie van advertenties' aan.
     
     \item Stop de data verzameling van locatiegegevens. Dit kan via de webapplicatie van Google gedaan worden of via het apparaat zelf. Om dit te doen via het apparaat zelf, dient men eerst te navigeren naar 'Instellingen' > 'Google' > 'Google account'. Ga dan naar het tabblad 'Gegevens en personalisatie'. Onder de sectie 'Activiteitsopties' moeten 'Web- en app-activiteit' en 'Locatiegeschiedenis' onderbroken worden.
     
-    \item Stel een andere DNS-server in. Navigeer hiervoor naar 'Instellingen' > 'Wi-Fi \& internet' > 'Privé-DNS'. Hier kan de gebruiker een DNS-provider naar keuze invullen. Voor dit experiment zal de '1dot1dot1dot1.cloudflare-dns.com' gebruikt worden, een DNS-provider aangeboden door cloudflare.
+    \item Stel een andere DNS-server in. Navigeer hiervoor naar 'Instellingen' > 'Wi-Fi \& internet' > 'Privé-DNS'. Hier kan de gebruiker een DNS-provider naar keuze invullen. Voor dit experiment zal de '1dot1dot1dot1.cloudflare-dns.com' gebruikt worden, een DNS-provider aangeboden door Cloudflare.
     
     \item Stop met het gebruiken van Google applicaties. Hiervoor hoeft er in principe geen extra stap te worden uitgevoerd, maar er kan wel gezorgd worden dat reeds geïnstalleerde Google applicaties niet meer kunnen worden uitgevoerd op de achtergrond. Voor dit experiment zullen de volgende applicaties uitgeschakeld worden: Google Agenda, Google Chrome, Google Contacten, Google Drive, Google Duo, Google Foto's, GBoard, Gmail, Google, Google Play Films, Google Play Muziek, Google Play Store, Google Maps, Youtube. Om dit te doen moet men eerst navigeren naar 'Instellingen' > 'Apps en meldingen' > 'Alle 40 apps bekijken'. Druk één voor één de applicatie aan die u wilt uitschakelen, en druk in het detailscherm op 'uitschakelen'.
     
     \item 
-    \nameref{itm:disablesleep} (Stap \ref{itm:disablesleep} van terugkerende stappen (\ref{recurringsteps})
+    \nameref{itm:disablesleep} (Stap \ref{itm:disablesleep} van terugkerende stappen (\ref{recurringsteps}))
 \end{enumerate}
     
 \subsection{Testgeval 3: Aangepaste versie van Android}
@@ -105,7 +105,7 @@ Om de toestand van dit testgeval te bekomen, moeten volgende stappen uitgevoerd 
     \item Installeer ADB, Fasboot en Android drivers op een computer. Deze tools geven ons de mogelijkheid om commando's te versturen vanaf onze computer naar de bootloader of herstelmodus van ons apparaat. Een gids voor het installeren van deze tools op verschillende platforms is te vinden op \url{https://www.xda-developers.com/install-adb-windows-macos-linux/}.
     
     \item 
-    \nameref{itm:developersettings} (Stap \ref{itm:developersettings} van terugkerende stappen (\ref{recurringsteps})
+    \nameref{itm:developersettings} (Stap \ref{itm:developersettings} van terugkerende stappen (\ref{recurringsteps}))
     
     \item Schakel USB-foutopsporing in. Deze optie moet ingeschakeld worden zodat een computer kan communiceren met het apparaat via een USB-kabel.
     
@@ -121,10 +121,10 @@ Om de toestand van dit testgeval te bekomen, moeten volgende stappen uitgevoerd 
     \item Installeer de ROM. Druk binnen TWRP op 'Install' en navigeer naar '/data/tmp/'. Selecteer lineage.zip en bevestig de installatie van dit .zip bestand. Eens de installatie voltooid is, druk je op 'Wipe cache/dalvik', en daarna op 'Reboot System'.
     
     \item 
-    LineageOS is nu geïnstalleerd! Merk op dat er op het apparaat geen Google applicaties te vinden zijn. De aanwezigheid van microG zorgt ervoor dat applicaties die normaal voortwerken op API's die Google Play-services aanbieden, nog steeds werken.
+    LineageOS is nu geïnstalleerd! Merk op dat er op het apparaat geen Google applicaties te vinden zijn. De aanwezigheid van microG zorgt ervoor dat applicaties die normaal voortwerken op API's die Google Play Services aanbiedt, nog steeds werken.
     
     \item 
-    \nameref{itm:disablesleep} (Stap \ref{itm:disablesleep} van terugkerende stappen (\ref{recurringsteps})
+    \nameref{itm:disablesleep} (Stap \ref{itm:disablesleep} van terugkerende stappen (\ref{recurringsteps}))
 \end{enumerate}
 
 \section{Monitoring netwerkactiviteit}
