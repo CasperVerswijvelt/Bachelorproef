@@ -25,6 +25,7 @@
 % EXTRA
 %-------
 \usepackage{subcaption}
+\usepackage{hyperref}
 
 %-------------------------------------------------------------------------------
 % Algemene vormgeving, pagina-indeling
