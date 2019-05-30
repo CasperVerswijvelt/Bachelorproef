@@ -5,7 +5,7 @@
 \chapter{Resultaten}
 \label{ch:resultaten}
 
-\section{Stappenplannen testgevallen}
+\section{Resultaten uitgeschreven stappenplannen voor testgevallen}
 
 \subsection{Terugkerende stappen}
 \label{recurringsteps}
@@ -127,11 +127,13 @@ Om de toestand van dit testgeval te bekomen, moeten volgende stappen uitgevoerd 
     \nameref{itm:disablesleep} (Stap \ref{itm:disablesleep} van terugkerende stappen (\ref{recurringsteps}))
 \end{enumerate}
 
-\section{Monitoring netwerkactiviteit}
+\section{Resultaten monitoring netwerkactiviteit}
 
-Uit de monitoring van de netwerkactiveit van elk testgeval, kwamen volgende resultaten voort. De samengevatte resultaten zijn te zien in \ref{tab:resumed}. Deze resultaten zijn zeer beperkt. De volledige resultatenset per testgeval kan bezichtigd worden in bijlage \ref{label} %TODO BIJLAGE
+Per testgeval werd het uitgeschreven experiment met betrekking tot de monitoring van de netwerkactiviteit 8 uur lang uitgevoerd. Hierin werd elk uur beschouwd als een aparte uitvoering van het experiment.
 
-\begin{table}[]
+Hieruit kwamen volgende resultaten voort. De samengevatte resultaten zijn te zien in tabel \ref{tab:resumed}. Deze resultaten zijn zeer beperkt. De volledige resultatenset per testgeval kan bezichtigd worden in bijlage \ref{appendix:rawresults}, '\nameref{appendix:rawresults}'.
+
+\begin{table}[h]
     \centering
     \begin{tabular}{@{}rccc@{}}
         \toprule
@@ -150,7 +152,62 @@ Uit de monitoring van de netwerkactiveit van elk testgeval, kwamen volgende resu
 \end{table}
 \subsection{Testgeval 1: Android met fabrieksinstellingen}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/grafieken/stackedbars-testgeval1.png}
+    \caption{Verdeling van verzoeken over verschillende domeinen van Google, per uitvoering van het experiment voor testgeval 1}
+    \label{fig:stackedbars-testgeval1}
+\end{figure}
+
+Figuur \ref{fig:stackedbars-testgeval1} toont per uitvoering van het experiment op testgeval 1, hoeveel keer er een verzoek werd verstuurd naar specifieke domeinen van Google.
+
+Als deze grafiek nader bekeken wordt, kan er opgemerkt worden dat het aantal verstuurde verzoeken zeer veel varieert over de verschillende testgevallen heen. Dit kan er op wijzen dat de duur van 1 uitvoering van het experiment mogelijk te kort was. De verdeling over de verschillende domeinen van Google vertelt dan dat ook zeer onregelmatig naar specifieke domeinen een verzoek wordt verstuurd. Wel valt op dat naar het domein '\url{https://play.googleapis.com}' doorheen de uitvoeringen van het experiment telkens twee keer wordt een verzoek wordt gestuurd, behalve de eerste uitvoering, waarin dit 4 keer gebeurde. Ook naar '\url{https://app-measurement.com}' wordt bijna consistent 1 verzoek gestuurd, behalve in uitvoering 2 van het experiment. Verzoeken naar '\url{https://android.googleapis.com}' en '\url{https://clients4.google.com}' komen vaak in grotere getallen voor, als deze voorkomen, wat niet tijdens elke uitvoering gebeurde. Verzoeken naar andere domeinen vertonen geen opmerkelijke trenden
+
 \subsection{Testgeval 2: Android met aangepaste instellingen}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/grafieken/stackedbars-testgeval2.png}
+    \caption{Verdeling van verzoeken over verschillende domeinen van Google, per uitvoering van het experiment voor testgeval 2}
+    \label{fig:stackedbars-testgeval2}
+\end{figure}
+
+Figuur \ref{fig:stackedbars-testgeval2} toont per uitvoering van het experiment op testgeval 3, hoeveel keer er een verzoek werd verstuurd naar specifieke domeinen van Google. 
+
+Hier vertonen verzoeken naar '\url{https://play.googleapis.com}' een identieke trend als in de data uit het experiment op testgeval 1. In de eerste uitvoering werden er hiernaar 4 verzoeken gestuurd, en in de resterende uitvoeringen werden er hiernaar consistent 2 verzoeken gestuurd. Deze verzoeken kunnen mogelijk toegekend worden aan de 'Google Play Services' applicatie, die als enigste Google applicatie op het apparaat, niét kon uitgeschakeld worden. Verzoeken naar andere domeinen komen nog steeds voor, met name '\url{https://app-measurement.com}', '\url{https://www.googleapis.com}', '\url{https://www.gstatic.com}' en '\url{https://mdh-pa.googleapis.com}' maar deze bereiken slechts een gecombineerd maximum van 2 verzoeken per uitvoering van het experiment.
+
 \subsection{Testgeval 3: Aangepaste versie van Android}
-Tijdens het uitvoeren van het experiment op testgeval 3 werd er geen data verzameld gedurende alle uitvoeringen van het experiment. Er werd geen enkele netwerkactiviteit gemeten.
+Tijdens het uitvoeren van het experiment op testgeval 3 werd er geen data verzameld gedurende alle uitvoeringen van het experiment. Er werd geen enkele netwerkactiviteit gemeten. Dit is ook te zien in figuur \ref{fig:stackedbars-testgeval3}. Het netwerkverkeer naar Google domeinen werd dus volledig geëlimineerd door de toestand van dit testgeval.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{experiment/grafieken/stackedbars-testgeval3.png}
+    \caption{Verdeling van verzoeken over verschillende domeinen van Google, per uitvoering van het experiment voor testgeval 3}
+    \label{fig:stackedbars-testgeval3}
+\end{figure}
+
+\subsection{Vergelijking}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{experiment/grafieken/boxplot-compare.png}
+    \caption{Vergelijking van verzonden verzoeken van alle testgevallen tegenover elkaar}
+    \label{fig:boxplot-compare}
+\end{figure}
+
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{@{}rccc@{}}
+        \toprule
+        & Testgeval 1 & Testgeval 2 & Testgeval 3 \\ \midrule
+        Gemiddelde & 19,88 & 3,00 & 0,00 \\
+        Mediaan & 18,50 & 2,50 & 0,00 \\
+        Standaardafwijking & 10,41 & 1,41 & 0,00 \\
+        Gemiddelde procentuele $\Delta$ tegenover testgeval 1 & / & -84,91\% & -100,00\% \\ \bottomrule
+    \end{tabular}
+    \caption{Beschrijvende data over het aantal verstuurde verzoeken binnen elk testgeval}
+    \label{tab:misc-data}
+\end{table}
+
+In figuur \ref{fig:boxplot-compare} en \ref{tab:misc-data} worden de resultaten die voortkwamen uit de experimenten, vergeleken met elkaar. Hieruit kan afgeleid worden dat de spreiding van het aantal verstuurde verzoeken zeer hoog is in het eerste geval. In het tweede geval is deze spreiding veel kleiner geworden en liggen de resultaten dicht bij elkaar, en ook een heel stuk lager. Gemiddeld daalden het aantal verzoeken in testgeval met 84,91\% tegenover testgeval 1. In testgeval 3 werden alle verzoeken naar Google domeinen volledig geëlimineerd.
