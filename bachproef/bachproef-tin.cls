@@ -26,6 +26,9 @@
 %-------
 \usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{lscape}
 
 %-------------------------------------------------------------------------------
 % Algemene vormgeving, pagina-indeling
