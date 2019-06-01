@@ -51,11 +51,11 @@
 % The widths of these boxes can be easily edited to accommodate your content as you see fit
 
 \begin{minipage}[t]{0.75\linewidth}
-\VeryHuge \color{HoGentAccent1} \textbf{Titel van uw bachelorproef} \color{Black}\\ % Title
-\Huge\textit{Ondertitel (eventueel)}\\[2.4cm] % Subtitle
-\huge \textbf{Naam Voornaam, co-promotor, promotor}\\[0.5cm] % Author(s)
+\VeryHuge \color{HoGentAccent1} \textbf{Android zonder Google} \color{Black}\\ % Title
+\Huge\textit{Waarom je Google zou willen vermijden in je Android smartphone en hoe je het kan doen}\\[2.4cm] % Subtitle
+\huge \textbf{Verswijvelt Casper, Desmet Stein, Lewyllie Liesbeth}\\[0.5cm] % Author(s)
 \huge Hogeschool Gent, Valentin Vaerwyckweg 1, 9000 Gent\\[0.4cm] % University/organization
-\Large \texttt{voornaam.naam@hogent.be} \\
+\Large \texttt{casper.verswijvelt.y7500@student.hogent.be} \\
 \end{minipage}
 %
 \begin{minipage}[t]{0.25\linewidth}
@@ -76,27 +76,26 @@
 \color{HoGentAccent1} % Navy color for the abstract
 
 \begin{abstract}
-It's only a model.
-You don't vote for kings. Who's that then? We found them. Ni! Ni! Ni! Ni!
-The nose? On second thoughts, let's not go there. It is a silly place. Bloody Peasant! And the hat. She's a witch! Where'd you get the coconuts?
+Binnen dit onderzoek werd er onderzocht welke methoden er precies zijn, al dan niet ondersteund door Google en/of Android, om Google zoveel mogelijk te verbannen van een Android apparaat, en hoe effectief ze juist zijn.
 \end{abstract}
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
 %----------------------------------------------------------------------------------------
 
+\setlength{\parskip}{\baselineskip}%
+\setlength{\parindent}{12pt}%
+
 \color{HoGentAccent1} 
 \section*{Introductie}
 \color{black}
 \color{black}
-Be quiet! Found them? In Mercia?! The coconut's tropical! But you are dressed as one… Well, what do you want? Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods.
+Android telt de dag van vandaag reeds meer dan 2,5 miljard maandelijks actieve gebruikers. Android zelf is een zeer brede term. Deze bevat niet enkel het Android Open Source Project (AOSP), die de basisversie van het besturingssysteem omvat, maar ook alle aftakkingen hiervan. Zo'n aftakkingen worden vaak uitgebreid met extra functionaliteiten waarmee smartphone producenten zich proberen te onderscheiden van elkaar. Een ander softwarepakket dat vaak wordt meegeleverd met apparaten die bestemd zijn voor de westerse markt, maar niet inbegrepen is in het AOSP, is het 'Google Apps' pakket.
 
-Well, what do you want? It's only a model. Camelot! We found them. We shall say 'Ni' again to you, if you do not appease us.
+Google Apps, is niet, zoals de naam impliceert, enkel een verwijzing naar Google applicaties zoals Gmail, YouTube, Maps, etc. Hieronder valt ook het onderliggende 'Google Play Services' framework. Dit framework biedt API's aan die makkelijker te gebruiken zijn dan degene die in het AOSP te vinden zijn, en ook meer functionaliteiten aanbieden. Het 'Google Apps' softwarepakket staat apart van het besturingssysteem, en kan ook geüpdatet worden zonder dat het volledige besturingssysteem moet worden bijgewerkt. Zo kunnen applicatie-ontwikkelaars zeer makkelijk verderwerken met de nieuwste functionaliteiten die de Google Play Services aanbiedt, zelfs op apparaten die niet de laatste versie van Android bevatten.
 
-The nose? Shut up! Burn her! I am your king. You don't vote for kings.
+Wanneer applicaties uit dit softwarepakket worden gebruikt, wordt er ook data verzameld over de gebruiker. Deze data gebruikt Google dan om gericht advertenties te kunnen sturen naar gebruikers. Volgens een onderzoek door \cite{schmidt_google-data-collection} is Android een essentiële factor bij Google's verzamelen van data. De producten die Google aanbiedt zijn in staat om gebruikersgegevens te verzamelen via een verscheidenheid aan technieken die door de doorsnee gebruiker mogelijk moeilijk te begrijpen zijn. Een groot deel van de verzamelde data wordt verzameld wanneer de gebruiker niet rechtstreeks in contact komt met Google's producten. 
 
-You can't expect to wield supreme power just 'cause some watery tart threw a sword at you! Well, we did do the nose. I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!
-
-Why do you think that she is a witch? We want a shrubbery!! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!
+Applicaties binnen dit softwarepakket worden, wanneer deze wordt meegeleverd met het besturingsysteem, geïnstalleerd als systeemapplicaties. Dit betekent dat ze nooit volledig verwijderd kunnen worden. Dit wordt een probleem wanneer de gebruiker wil beperken welke Google software er zich op zijn/haar apparaat bevindt. Google zelf biedt reeds enkele opties aan om het verzamelen van data in te perken, maar deze zijn beperkt.
 %----------------------------------------------------------------------------------------
 %	GEOLOGY
 %----------------------------------------------------------------------------------------
@@ -105,34 +104,38 @@ Why do you think that she is a witch? We want a shrubbery!! I don't want to talk
 \color{HoGentAccent1} 
 \section*{Experimenten}
 \color{black}
-A newt? Camelot! Why? No, no, no! Yes, yes. A bit. But she's got a wart.
+Er werd reeds onderzocht hoeveel een standaard ingesteld Android apparaat communiceert met Google, maar dit werd nog niet toegepast samen met verschillende 'ontgoogle' methodes. In dit onderzoek werd onderzocht wat de mogelijke manieren zijn om Google zoveel mogelijk te verbannen van het apparaat, beide door methoden die Google zelf aanbiedt en methoden die niet rechtstreeks door Google ondersteund worden. Hieruit kwamen drie testgevallen voort: 
+\begin{itemize}
+    \item Android met fabrieksinstellingen
+    \item Android met aangepaste instellingen 
+    \item Aangepaste versie van Android. (LineageOS)
+\end{itemize}
 
-Shut up! I dunno. Must be a king. Who's that then? Look, my liege! On second thoughts, let's not go there. It is a silly place.
+Bij elk testgeval werd bekeken welke stappen moesten worden gevolgd om de gewenste toestand van het testgeval te bereiken. Hierna werd er per geval geanalyseerd hoeveel keer er naar Google gecommuniceerd werd, zonder dat er enige interactie met het apparaat plaats vond. 
 
-Shut up! Will you shut up?! No, no, no! Yes, yes. A bit. But she's got a wart. He hasn't got shit all over him. It's only a model. It's only a model.
-
-Bring her forward! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave 
-
-
+\vfill\null
+\columnbreak
 
 \color{HoGentAccent1} 
-\section*{Sectie met figuur}
+\section*{Resultaten}
 \color{black}
 
 
 \begin{center}\vspace{1cm}
-\includegraphics[width=1.0\linewidth]{grail}
-\captionof{figure}{\color{HoGentAccent5} He hasn't got shit all over him. The nose? Where'd you get the coconuts? What do you mean? We shall say 'Ni' again to you, if you do not appease us}
+\includegraphics[width=1.0\linewidth]{../bachproef/experiment/grafieken/boxplot-compare-wide.png}
+\captionof{figure}{\color{HoGentAccent5} Aantal verzonden verzoeken naar Google domeinen per uur, vergeleken per testgeval}
 \end{center}\vspace{1cm}
 
 %------------------------------------------------
 
-
-
 \color{HoGentAccent1} 
 \section*{Conclusies}
 \color{black}
-on't underestimate the Force. Oh God, my uncle. How am I ever gonna explain this? I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.
+Uit de resultaten van dit experiment bleek dat er per uur gemiddeld 20 keer naar Google werd gecommuniceerd wanneer het Android apparaat is ingesteld volgens de standaard instellingen. Het aantal verzonden verzoeken in deze toestand waren zeer uiteenlopend wanneer deze werden vergeleken met de resultaten van het experiment bij de andere testgevallen. Dit aantal lag hier minimum op 4 verzoeken per uur en maximum op 36.
+
+In het geval waar Google zoveel mogelijk werd ingetoomd door middel van de opties aangeboden door Google en Android te gebruiken, werd er gemiddeld 3 keer per uur naar Google toe gecommuniceerd. Dit aantal ligt direct een stuk lager dan het voorgaande experiment, en met een minimum van 2 verzoeken en een maximum van 6 verzoeken zijn deze resultaten ook veel minder uiteenlopend. Tegenover het voorgaande testgeval werd het aantal verzoeken met 85\% gereduceerd. De stappen die moesten worden gevolgd om dit resultaat te bekomen, waren niet direct intuïtief te vinden binnen het Android besturingssysteem, maar eens gevonden zijn ze makkelijk aan te passen.
+
+In het laatste geval werd er op het testapparaat een andere versie van Android geïnstalleerd, die geen enkele extra software van Google bevat, namelijk LineageOS. De stappen die hiervoor moesten gevolgd worden, waren alles behalve gebruiksvriendelijk. De benodigdheid van extra software die niet op een centrale plek op het internet wordt aangeboden is mogelijk een struikelblok voor gebruikers indien ze deze methode zelf ook willen toepassen. De stappen moeten zeer specifiek opgevolgd worden en de mogelijkheid dat het apparaat in een onbruikbare staat terechtkomt, is reëel. De moeite wordt wel beloond, want uit de resultaten blijkt doorheen alle uitvoeringen van het experiment dat er geen enkele communicatie met Google voorkomt in deze toestand.
 %----------------------------------------------------------------------------------------
 %	FORTHCOMING RESEARCH
 %----------------------------------------------------------------------------------------
@@ -140,9 +143,7 @@ on't underestimate the Force. Oh God, my uncle. How am I ever gonna explain this
 \section*{Toekomstig onderzoek}
 \color{black}
 
-I care. So, what do you think of her, Han? No! Alderaan is peaceful. We have no weapons. You can't possibly… I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
-
-Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. You are a part of the Rebel Alliance and a traitor! Take her away! 
+Binnen dit onderzoek werd de inhoud en specifieke URL van aanvragen naar Google niet geanalyseerd. De inhoud van deze aanvragen kan echter wel meer licht laten schijnen op welke informatie er precies wordt gecommuniceerd naar Google toe. Verder kan het ook interessant zijn dit experiment toe te passen op een 'day-in-the-life' scenario om zo een meer realistische werklast op het apparaat uit te oefenen.
 
 
 %----------------------------------------------------------------------------------------
