@@ -3,6 +3,8 @@
 
 Met deze bachelorproef behaalde ik een resultaat van 14/20, wat 1 punt te weinig is om door HoGent gepubliceerd te worden. Er werd veel tijd in dit document gestoken, en zou het dus ook jammer zijn als niemand deze te lezen zou krijgen. Daarom werd deze repository als publiek ingesteld zodat geïnteresseerden het onderzoek en alle resultaten toch kunnen raadplegen. De pdf documenten zijn te vinden onder 'releases'.
 
+Graag bedank ik mijn co-promotor Stein Desmet voor zijn uitgebreide technische ondersteuning binnen dit onderzoek, alsook mijn promotor Liesbeth Lewyllie voor de continue feedback doorheen het schrijven van dit document.
+
 ### Abstract 
 Binnen dit onderzoek werd er onderzocht welke methoden er precies zijn, al dan niet ondersteund door Google en/of Android, om Google zoveel mogelijk te verbannen van een Android apparaat, en hoe effectief ze juist zijn.
 
