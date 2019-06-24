@@ -40,6 +40,9 @@
 \usepackage[export]{adjustbox}
 
 \begin{document}
+    
+\hyphenpenalty 10000
+\exhyphenpenalty 10000
 
 %----------------------------------------------------------------------------------------
 %	POSTER HEADER 
@@ -83,7 +86,7 @@ Binnen dit onderzoek werd er onderzocht welke methoden er precies zijn, al dan n
 %----------------------------------------------------------------------------------------
 
 \setlength{\parskip}{\baselineskip}%
-\setlength{\parindent}{12pt}%
+\setlength{\parindent}{0pt}%
 
 \color{HoGentAccent1} 
 \section*{Introductie}
@@ -93,9 +96,9 @@ Android telt de dag van vandaag reeds meer dan 2,5 miljard maandelijks actieve g
 
 Google Apps, is niet, zoals de naam impliceert, enkel een verwijzing naar Google applicaties zoals Gmail, YouTube, Maps, etc. Hieronder valt ook het onderliggende 'Google Play Services' framework. Dit framework biedt API's aan die makkelijker te gebruiken zijn dan degene die in het AOSP te vinden zijn, en ook meer functionaliteiten aanbieden. Het 'Google Apps' softwarepakket staat apart van het besturingssysteem, en kan ook geüpdatet worden zonder dat het volledige besturingssysteem moet worden bijgewerkt. Zo kunnen applicatie-ontwikkelaars zeer makkelijk verderwerken met de nieuwste functionaliteiten die de Google Play Services aanbiedt, zelfs op apparaten die niet de laatste versie van Android bevatten.
 
-Wanneer applicaties uit dit softwarepakket worden gebruikt, wordt er ook data verzameld over de gebruiker. Deze data gebruikt Google dan om gericht advertenties te kunnen sturen naar gebruikers. Volgens een onderzoek door \cite{schmidt_google-data-collection} is Android een essentiële factor bij Google's verzamelen van data. De producten die Google aanbiedt zijn in staat om gebruikersgegevens te verzamelen via een verscheidenheid aan technieken die door de doorsnee gebruiker mogelijk moeilijk te begrijpen zijn. Een groot deel van de verzamelde data wordt verzameld wanneer de gebruiker niet rechtstreeks in contact komt met Google's producten. 
+Wanneer applicaties uit dit softwarepakket worden gebruikt, wordt er ook data verzameld over de gebruiker. Deze data gebruikt Google dan om gericht advertenties te kunnen sturen naar gebruikers. Volgens een onderzoek door Douglas C. Schmidt is Android een essentiële factor bij Google's verzamelen van data. De producten die Google aanbiedt zijn in staat om gebruikersgegevens te verzamelen via een verscheidenheid aan technieken die door de doorsnee gebruiker mogelijk moeilijk te begrijpen zijn. Een groot deel van de verzamelde data wordt verzameld wanneer de gebruiker niet rechtstreeks in contact komt met Google's producten. 
 
-Applicaties binnen dit softwarepakket worden, wanneer deze wordt meegeleverd met het besturingsysteem, geïnstalleerd als systeemapplicaties. Dit betekent dat ze nooit volledig verwijderd kunnen worden. Dit wordt een probleem wanneer de gebruiker wil beperken welke Google software er zich op zijn/haar apparaat bevindt. Google zelf biedt reeds enkele opties aan om het verzamelen van data in te perken, maar deze zijn beperkt.
+Applicaties binnen dit softwarepakket worden, wanneer deze wordt meegeleverd met het besturingssysteem, geïnstalleerd als systeemapplicaties. Dit betekent dat ze nooit volledig verwijderd kunnen worden. Dit wordt een probleem wanneer de gebruiker wil beperken welke Google software er zich op zijn/haar apparaat bevindt. Google zelf biedt reeds enkele opties aan om het verzamelen van data in te perken, maar deze zijn beperkt.
 %----------------------------------------------------------------------------------------
 %	GEOLOGY
 %----------------------------------------------------------------------------------------
@@ -111,7 +114,7 @@ Er werd reeds onderzocht hoeveel een standaard ingesteld Android apparaat commun
     \item Aangepaste versie van Android. (LineageOS)
 \end{itemize}
 
-Bij elk testgeval werd bekeken welke stappen moesten worden gevolgd om de gewenste toestand van het testgeval te bereiken. Hierna werd er per geval geanalyseerd hoeveel keer er naar Google gecommuniceerd werd, zonder dat er enige interactie met het apparaat plaats vond. 
+Bij elk testgeval werd bekeken welke stappen moesten worden gevolgd om de gewenste toestand van het testgeval te bereiken. Hierna werd er per geval geanalyseerd hoeveel keer er naar Google gecommuniceerd werd, zonder dat er enige interactie met het apparaat plaatsvond. 
 
 \vfill\null
 \columnbreak
@@ -124,6 +127,7 @@ Bij elk testgeval werd bekeken welke stappen moesten worden gevolgd om de gewens
 \begin{center}\vspace{1cm}
 \includegraphics[width=1.0\linewidth]{../bachproef/experiment/grafieken/boxplot-compare-wide.png}
 \captionof{figure}{\color{HoGentAccent5} Aantal verzonden verzoeken naar Google domeinen per uur, vergeleken per testgeval}
+\label{grafiek}
 \end{center}\vspace{1cm}
 
 %------------------------------------------------
@@ -131,15 +135,17 @@ Bij elk testgeval werd bekeken welke stappen moesten worden gevolgd om de gewens
 \color{HoGentAccent1} 
 \section*{Conclusies}
 \color{black}
-Uit de resultaten van dit experiment bleek dat er per uur gemiddeld 20 keer naar Google werd gecommuniceerd wanneer het Android apparaat is ingesteld volgens de standaard instellingen. Het aantal verzonden verzoeken in deze toestand waren zeer uiteenlopend wanneer deze werden vergeleken met de resultaten van het experiment bij de andere testgevallen. Dit aantal lag hier minimum op 4 verzoeken per uur en maximum op 36.
+Uit de resultaten van dit experiment bleek dat er per uur gemiddeld 20 keer naar Google werd gecommuniceerd wanneer het Android apparaat is ingesteld volgens de standaard instellingen. Het aantal verzonden verzoeken in deze toestand was zeer uiteenlopend wanneer dit werd vergeleken met de resultaten van het experiment bij de andere testgevallen. Dit aantal lag hier minimum op 4 verzoeken per uur en maximum op 36.
 
-In het geval waar Google zoveel mogelijk werd ingetoomd door middel van de opties aangeboden door Google en Android te gebruiken, werd er gemiddeld 3 keer per uur naar Google toe gecommuniceerd. Dit aantal ligt direct een stuk lager dan het voorgaande experiment, en met een minimum van 2 verzoeken en een maximum van 6 verzoeken zijn deze resultaten ook veel minder uiteenlopend. Tegenover het voorgaande testgeval werd het aantal verzoeken met 85\% gereduceerd. De stappen die moesten worden gevolgd om dit resultaat te bekomen, waren niet direct intuïtief te vinden binnen het Android besturingssysteem, maar eens gevonden zijn ze makkelijk aan te passen.
+In het geval waar Google zoveel mogelijk werd ingetoomd door de opties aangeboden door Google en Android te gebruiken, werd er gemiddeld 3 keer per uur naar Google toe gecommuniceerd. Dit aantal ligt direct een stuk lager dan bij het voorgaande experiment, en met een minimum van 2 verzoeken en een maximum van 6 verzoeken zijn deze resultaten ook veel minder uiteenlopend. Tegenover het voorgaande testgeval werd het aantal verzoeken met 85\% gereduceerd. De stappen die moesten worden gevolgd om dit resultaat te bekomen, waren niet direct intuïtief te vinden binnen het Android besturingssysteem, maar eens gevonden zijn ze makkelijk aan te passen.
 
-In het laatste geval werd er op het testapparaat een andere versie van Android geïnstalleerd, die geen enkele extra software van Google bevat, namelijk LineageOS. De stappen die hiervoor moesten gevolgd worden, waren alles behalve gebruiksvriendelijk. De benodigdheid van extra software die niet op een centrale plek op het internet wordt aangeboden is mogelijk een struikelblok voor gebruikers indien ze deze methode zelf ook willen toepassen. De stappen moeten zeer specifiek opgevolgd worden en de mogelijkheid dat het apparaat in een onbruikbare staat terechtkomt, is reëel. De moeite wordt wel beloond, want uit de resultaten blijkt doorheen alle uitvoeringen van het experiment dat er geen enkele communicatie met Google voorkomt in deze toestand.
+In het laatste geval werd er op het testapparaat een andere versie van Android geïnstalleerd, die geen enkele extra software van Google bevat, namelijk LineageOS. De stappen die hiervoor moesten gevolgd worden, waren alles behalve gebruiksvriendelijk. De benodigdheid van extra software die niet op een centrale plek op het internet wordt aangeboden is mogelijk een struikelblok voor gebruikers indien ze deze methode zelf ook willen toepassen. De stappen moeten zeer specifiek opgevolgd worden en de mogelijkheid dat het apparaat in een onbruikbare staat terechtkomt, is reëel. De moeite wordt wel beloond, want uit de resultaten blijkt dat er doorheen alle uitvoeringen van het experiment geen enkele communicatie met Google voorkomt in deze toestand.
+
+In figuur \ref{grafiek} is te zien hoeveel communicaties naar Google er per uur plaatsvinden, vergeleken onder de verschillende testgevallen.
 %----------------------------------------------------------------------------------------
 %	FORTHCOMING RESEARCH
 %----------------------------------------------------------------------------------------
-\color{HoGentAccent1} 
+\color{HoGentAccent1}
 \section*{Toekomstig onderzoek}
 \color{black}
 
