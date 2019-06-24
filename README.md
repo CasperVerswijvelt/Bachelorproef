@@ -1,6 +1,7 @@
 # Bachelorproef Toegepaste Informatica
 ## Android zonder Google: Waarom je Google zou willen vermijden in je Android smartphone en hoe je het kan doen
-Gebaseerd op het [het latex bachelorproef template van HoGent](https://github.com/HoGentTIN/bachproef-latex-sjabloon)
+
+Met deze bachelorproef behaalde ik een resultaat van 14/20, wat 1 punt te weinig is om door HoGent gepubliceerd te worden. Er werd veel tijd in dit document gestoken, en zou het dus ook jammer zijn als niemand deze te lezen zou krijgen. Daarom werd deze repository als publiek ingesteld zodat geïnteresseerden het onderzoek en alle resultaten toch kunnen raadplegen. De pdf documenten zijn te vinden onder 'releases'.
 
 ### Abstract 
 Binnen dit onderzoek werd er onderzocht welke methoden er precies zijn, al dan niet ondersteund door Google en/of Android, om Google zoveel mogelijk te verbannen van een Android apparaat, en hoe effectief ze juist zijn.
@@ -34,4 +35,6 @@ In bovenstaande figuur is te zien hoeveel communicaties naar Google er per uur p
 
 ### Toekomstig onderzoek
 Binnen dit onderzoek werd de inhoud en specifieke URL van aanvragen naar Google niet geanalyseerd. De inhoud van deze aanvragen kan echter wel meer licht laten schijnen op welke informatie er precies wordt gecommuniceerd naar Google toe. Verder kan het ook interessant zijn dit experiment toe te passen op een 'day-in-the-life' scenario om zo een meer realistische werklast op het apparaat uit te oefenen.
+
+*Gebaseerd op het [het latex bachelorproef template van HoGent](https://github.com/HoGentTIN/bachproef-latex-sjabloon)*
 
